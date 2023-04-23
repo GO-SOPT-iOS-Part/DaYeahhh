@@ -80,6 +80,6 @@ class CustomPasswordTextField: UITextField {
     
     @objc
     func textFieldDidChange(_ textField: UITextField) {
-//        self.clearButton.isHidden = self.hasText|| !self.isEditing
+        self.clearButton.isHidden = !self.hasText || !self.isEditing
     }
 }
