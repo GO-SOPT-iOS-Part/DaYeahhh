@@ -29,6 +29,8 @@ class WelcomeView: UIView {
         $0.layer.cornerRadius = 3
     }
     
+    // MARK: - init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -44,10 +46,15 @@ class WelcomeView: UIView {
 }
 
 private extension WelcomeView {
+    
+    // MARK: - style
+
     func style() {
         self.backgroundColor = .black
     }
     
+    // MARK: - layout
+
     func hierarchy() {
         self.addSubviews(mainImgView,
                          welcomeLabel,

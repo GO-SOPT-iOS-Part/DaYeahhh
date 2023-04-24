@@ -9,98 +9,27 @@ import UIKit
 
 class LoginView: UIView {
 
-    // MARK: - Object Setting
+    // MARK: - property
     
-    private let mainLabel = UILabel().then {
-        $0.text = "TVING ID 로그인"
-        $0.font = .tvingMedium(ofSize: 23)
-        $0.textColor = .tvingGray1
-        $0.textAlignment = .center
-    }
+    private let mainLabel = UILabel()
     
-    let idTextField = CustomTextField().then {
-        $0.placeholder = "이메일"
-        $0.setPlaceholderColor(.tvingGray2)
-        $0.font = .tvingMedium(ofSize: 15)
-        $0.textColor = .tvingGray2
-        $0.backgroundColor = .tvingGray4
-        $0.keyboardType = .emailAddress
-    }
+    let idTextField = CustomTextField()
+    let idInvalidLabel = UILabel()
+    let passwordTextField = CustomPasswordTextField()
+    lazy var logInBtn = UIButton()
     
-    let idInvalidLabel = UILabel().then {
-        $0.textColor = .systemRed
-        $0.font = .systemFont(ofSize: 12)
-        $0.text = "* 올바르지 않은 이메일 형식입니다 😭"
-        $0.isHidden = true
-    }
+    private let idPasswordStackView = UIStackView()
+    lazy var findIdBtn = UIButton()
+    lazy var findPasswordBtn = UIButton()
     
-    let passwordTextField = CustomPasswordTextField().then {
-        $0.placeholder = "비밀번호"
-        $0.setPlaceholderColor(.tvingGray2)
-        $0.font = .tvingMedium(ofSize: 15)
-        $0.textColor = .tvingGray2
-        $0.backgroundColor = .tvingGray4
-        $0.keyboardType = .asciiCapable
-    }
+    private let makeAccountStackView = UIStackView()
+    let askExistAccountLabel = UILabel()
+    lazy var goToMakeNicknameBtn = UIButton()
     
-    lazy var logInBtn = UIButton().then {
-        $0.setTitle("로그인하기", for: .normal)
-        $0.setTitleColor(.tvingGray2, for: .normal)
-        $0.titleLabel?.font = .tvingMedium(ofSize: 14)
-        $0.titleLabel?.textAlignment = .center
-        $0.layer.borderColor = UIColor.tvingGray4.cgColor
-        $0.layer.borderWidth = 1
-        $0.layer.cornerRadius = 3
-        $0.isEnabled = false
-    }
+    lazy var backBtn = UIButton()
     
-    private let idPasswordStackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .center
-        $0.spacing = 40
-    }
-    
-    lazy var findIdBtn = UIButton().then {
-        $0.setTitle("아이디 찾기", for: .normal)
-        $0.setTitleColor(.tvingGray2, for: .normal)
-        $0.titleLabel?.font = .tvingMedium(ofSize: 14)
-        $0.titleLabel?.textAlignment = .center
-    }
-    
-    lazy var findPasswordBtn = UIButton().then {
-        $0.setTitle("비밀번호 찾기", for: .normal)
-        $0.setTitleColor(.tvingGray2, for: .normal)
-        $0.titleLabel?.font = .tvingMedium(ofSize: 14)
-        $0.titleLabel?.textAlignment = .center
-    }
-    
-    private let makeAccountStackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.distribution = .fill
-        $0.alignment = .center
-        $0.spacing = 20
-    }
-    
-    let askExistAccountLabel = UILabel().then {
-        $0.text = "아직 계정이 없으신가요?"
-        $0.font = .tvingRegular(ofSize: 14)
-        $0.textColor = .tvingGray3
-        $0.textAlignment = .center
-    }
-    
-    lazy var goToMakeNicknameBtn = UIButton().then {
-        $0.setTitle("닉네임 만들러가기", for: .normal)
-        $0.setTitleColor(.tvingGray2, for: .normal)
-        $0.titleLabel?.font = .tvingRegular(ofSize: 14)
-        $0.titleLabel?.textAlignment = .center
-        $0.setUnderline()
-    }
-    
-    lazy var backBtn = UIButton().then {
-        $0.setImage(UIImage(named: "btn_before"), for: .normal)
-    }
-    
+    // MARK: - init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -117,10 +46,104 @@ class LoginView: UIView {
 
 private extension LoginView {
     
+    // MARK: - style
+
     func style() {
         self.backgroundColor = .black
+        
+        mainLabel.do {
+            $0.text = "TVING ID 로그인"
+            $0.font = .tvingMedium(ofSize: 23)
+            $0.textColor = .tvingGray1
+            $0.textAlignment = .center
+        }
+        
+        idTextField.do {
+            $0.placeholder = "이메일"
+            $0.setPlaceholderColor(.tvingGray2)
+            $0.font = .tvingMedium(ofSize: 15)
+            $0.textColor = .tvingGray2
+            $0.backgroundColor = .tvingGray4
+            $0.keyboardType = .emailAddress
+        }
+        
+        idInvalidLabel.do {
+            $0.textColor = .systemRed
+            $0.font = .systemFont(ofSize: 12)
+            $0.text = "* 올바르지 않은 이메일 형식입니다 😭"
+            $0.isHidden = true
+        }
+        
+        passwordTextField.do {
+            $0.placeholder = "비밀번호"
+            $0.setPlaceholderColor(.tvingGray2)
+            $0.font = .tvingMedium(ofSize: 15)
+            $0.textColor = .tvingGray2
+            $0.backgroundColor = .tvingGray4
+            $0.keyboardType = .asciiCapable
+        }
+        
+        logInBtn.do {
+            $0.setTitle("로그인하기", for: .normal)
+            $0.setTitleColor(.tvingGray2, for: .normal)
+            $0.titleLabel?.font = .tvingMedium(ofSize: 14)
+            $0.titleLabel?.textAlignment = .center
+            $0.layer.borderColor = UIColor.tvingGray4.cgColor
+            $0.layer.borderWidth = 1
+            $0.layer.cornerRadius = 3
+            $0.isEnabled = false
+        }
+        
+        idPasswordStackView.do {
+            $0.axis = .horizontal
+            $0.distribution = .fill
+            $0.alignment = .center
+            $0.spacing = 40
+        }
+        
+        findIdBtn.do {
+            $0.setTitle("아이디 찾기", for: .normal)
+            $0.setTitleColor(.tvingGray2, for: .normal)
+            $0.titleLabel?.font = .tvingMedium(ofSize: 14)
+            $0.titleLabel?.textAlignment = .center
+        }
+        
+        findPasswordBtn.do {
+            $0.setTitle("비밀번호 찾기", for: .normal)
+            $0.setTitleColor(.tvingGray2, for: .normal)
+            $0.titleLabel?.font = .tvingMedium(ofSize: 14)
+            $0.titleLabel?.textAlignment = .center
+        }
+        
+        makeAccountStackView.do {
+            $0.axis = .horizontal
+            $0.distribution = .fill
+            $0.alignment = .center
+            $0.spacing = 20
+        }
+        
+        askExistAccountLabel.do {
+            $0.text = "아직 계정이 없으신가요?"
+            $0.font = .tvingRegular(ofSize: 14)
+            $0.textColor = .tvingGray3
+            $0.textAlignment = .center
+        }
+        
+        goToMakeNicknameBtn.do {
+            $0.setTitle("닉네임 만들러가기", for: .normal)
+            $0.setTitleColor(.tvingGray2, for: .normal)
+            $0.titleLabel?.font = .tvingRegular(ofSize: 14)
+            $0.titleLabel?.textAlignment = .center
+            $0.setUnderline()
+        }
+        
+        backBtn.do {
+            $0.setImage(UIImage(named: "btn_before"), for: .normal)
+        }
     }
     
+    // MARK: - layout
+
     func hierarchy() {
         self.addSubviews(mainLabel,
                          idTextField,

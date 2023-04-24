@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-struct TvingUserInfo {
+class TvingUserInfo {
     var id: String?
     var password: String?
     var nickName: String?
@@ -23,7 +23,7 @@ final class LoginViewController: BaseViewController {
     private let mainView = LoginView()
     private let nickNameBottomSheet = AddNickNameBottomSheetView()
     
-    var user = TvingUserInfo()
+    let originUser = TvingUserInfo()
     
     private var bottomSheetKeyboardEnable: Bool = false
     
@@ -84,9 +84,9 @@ private extension LoginViewController {
     @objc
     func tappedLogInBtn() {
         saveUserEmail()
-        let welcomViewController = WelcomeViewController()
-        welcomViewController.idDataBind(idOrNick: getNickNameOrId())
-        self.navigationController?.pushViewController(welcomViewController, animated: true)
+        let mainViewController = MainViewController()
+        mainViewController.userDataBind(orignalUser: originUser)
+        self.navigationController?.pushViewController(mainViewController, animated: false)
     }
     
     @objc
@@ -123,22 +123,22 @@ private extension LoginViewController {
     
     func saveUserEmail(){
         guard let id = mainView.idTextField.text else { return }
-        user.id = id
+        originUser.id = id
     }
     
     func saveUserNickName() {
         guard let nickName = nickNameBottomSheet.nickNameTextField.text else { return }
-        user.nickName = nickName
+        originUser.nickName = nickName
     }
     
-    func getNickNameOrId() -> String {
-        if let nickName = user.nickName {
-            return nickName
-        } else {
-            guard let id = user.id else { return "" }
-            return id
-        }
-    }
+//    func getNickNameOrId() -> String {
+//        if let nickName = user.nickName {
+//            return nickName
+//        } else {
+//            guard let id = user.id else { return "" }
+//            return id
+//        }
+//    }
     
     func isIDValid() -> Bool {
         guard let id = mainView.idTextField.text else { return false }
@@ -171,7 +171,6 @@ private extension LoginViewController {
         mainView.idTextField.text = nil
         mainView.passwordTextField.text = nil
         nickNameBottomSheet.nickNameTextField.text = nil
-        user = TvingUserInfo()
         mainView.logInBtn.enableDisableButtonSet(isEnable: false, setColor: .black, setTextColor: .tvingGray2)
     }
     
