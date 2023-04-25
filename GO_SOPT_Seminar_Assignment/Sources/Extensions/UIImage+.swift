@@ -11,7 +11,7 @@ extension UIImage {
     
     static var backImg: UIImage { UIImage(named: "btn_before.png")! }
     static var nextImg: UIImage { UIImage(named: "nextBtn.png")! }
-
+    
     static var bellImg: UIImage { UIImage(named: "notification.png")! }
     static var settingImg: UIImage { UIImage(named: "settings.png")! }
     static var profileImg: UIImage { UIImage(named: "doosan.png")! }
@@ -29,4 +29,13 @@ extension UIImage {
     
     static var tvnImg: UIImage { UIImage(named: "tvn.png")! }
     static var jtbcImg: UIImage { UIImage(named: "jtbc.png")! }
+    
+    func resized(withPercentage percentage: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: size.width * percentage, height: size.height * percentage)
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+    
 }
