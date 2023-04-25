@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MainViewController: BaseViewController {
+class MainViewController: TVINGBaseViewController {
 
     // MARK: - Property
 

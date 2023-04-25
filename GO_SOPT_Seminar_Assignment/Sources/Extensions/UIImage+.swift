@@ -18,6 +18,15 @@ extension UIImage {
     static var utilizeImg: UIImage { UIImage(named: "utilizeImg.png")! }
     static var cashImg: UIImage { UIImage(named: "cashImg.png")! }
     
+    static var bottomHomeG: UIImage { UIImage(named: "homeGray.jpg")! }
+    static var bottomHomeW: UIImage { UIImage(named: "homeWhite.jpg")! }
+    static var bottomPreG: UIImage { UIImage(named: "preGray.jpg")! }
+    static var bottomPreW: UIImage { UIImage(named: "preWhite.jpg")! }
+    static var bottomSearchG: UIImage { UIImage(named: "searchGray.jpg")! }
+    static var bottomSearchW: UIImage { UIImage(named: "searchWhite.jpg")! }
+    static var bottomRecordG: UIImage { UIImage(named: "recordGray.jpg")! }
+    static var bottomRecordW: UIImage { UIImage(named: "recordWhite.jpg")! }
+    
     static var tvnImg: UIImage { UIImage(named: "tvn.png")! }
     static var jtbcImg: UIImage { UIImage(named: "jtbc.png")! }
 }

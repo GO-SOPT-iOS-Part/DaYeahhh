@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MyPageViewController: BaseViewController {
+class MyPageViewController: TVINGBaseViewController {
     
     // MARK: - Property
 
