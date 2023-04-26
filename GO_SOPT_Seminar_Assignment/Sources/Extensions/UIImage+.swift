@@ -14,9 +14,9 @@ extension UIImage {
     
     static var bellImg: UIImage { UIImage(named: "notification.png")! }
     static var settingImg: UIImage { UIImage(named: "settings.png")! }
-    static var profileImg: UIImage { UIImage(named: "doosan.png")! }
-    static var utilizeImg: UIImage { UIImage(named: "utilizeImg.png")! }
-    static var cashImg: UIImage { UIImage(named: "cashImg.png")! }
+    static var profileImg: UIImage { UIImage(named: "tvingImg.jpg")! }
+    static var utilizeImg: UIImage { UIImage(named: "tvingSubscribe.png")! }
+    static var cashImg: UIImage { UIImage(named: "tvingCash.png")! }
     
     static var bottomHomeG: UIImage { UIImage(named: "homeGray.jpg")! }
     static var bottomHomeW: UIImage { UIImage(named: "homeWhite.jpg")! }

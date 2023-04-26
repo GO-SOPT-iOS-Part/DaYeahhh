@@ -35,8 +35,8 @@ class LabelNextBtnTableViewCell: UITableViewCell {
     
     // MARK: - Property
     
-    func configCell(_ mainLabel: String){
-        label.text = mainLabel
+    func configCell(_ mypageMenu: MyPageMenu){
+        label.text = mypageMenu.menuName
     }
     
 }
@@ -55,7 +55,7 @@ private extension LabelNextBtnTableViewCell {
             $0.textColor = .tvingGray2
         }
         nextBtn.do {
-            $0.setImage(.nextImg, for: .normal)
+            $0.setImage(.nextImg.resized(withPercentage: 0.6), for: .normal)
             $0.imageView?.contentMode = .scaleAspectFit
         }
     }
@@ -69,11 +69,12 @@ private extension LabelNextBtnTableViewCell {
         label.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(18)
+            $0.leading.equalToSuperview().inset(10)
         }
         nextBtn.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(18)
+            $0.trailing.equalToSuperview().inset(10
+            )
         }
     }
 }

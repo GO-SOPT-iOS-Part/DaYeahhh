@@ -17,20 +17,14 @@ class MyPageView: UIView {
     private let topButtonSheet = UIView()
     private let myPageTableView = UITableView()
     
+    private let headerView = MyPageHeaderView()
+    let logOutBtn = TvingButton()
+    
     let topBackBtn = UIButton()
     let topNotificationBtn = UIButton()
     let topSettingBtn = UIButton()
     
-    private let sectionNum: Int = 2
-    private let settingMyDummy: [String] = ["이용권",
-                                            "1:1 문의내역",
-                                            "예약알림",
-                                            "회원정보 수정",
-                                            "프로모션 정보 수신 동의"]
-    private let aboutTvingDummy: [String] = ["공지사항",
-                                             "이벤트",
-                                             "고객센터",
-                                             "티빙 알아보기"]
+    private let dummy = MyPageMenu.dummy()
     
     // MARK: - init
     
@@ -54,11 +48,26 @@ private extension MyPageView {
     func style() {
         
         myPageTableView.do {
-            $0.register(LabelNextBtnTableViewCell.self, forCellReuseIdentifier: LabelNextBtnTableViewCell.identifier)
-            $0.rowHeight = 48
+            $0.register(LabelNextBtnTableViewCell.self,
+                        forCellReuseIdentifier: LabelNextBtnTableViewCell.identifier)
+            $0.rowHeight = 52
+            $0.delegate = self
             $0.dataSource = self
+            $0.showsVerticalScrollIndicator = false
+            $0.sectionHeaderTopPadding = 0
+            $0.separatorStyle = .none
             $0.backgroundColor = .black
+            $0.tableHeaderView = headerView
+            $0.tableFooterView = logOutBtn
+            $0.tableHeaderView?.frame.size.height = 280
         }
+        logOutBtn.do {
+            $0.setTitle("로그아웃", for: .normal)
+            $0.setTitleColor(.tvingGray1, for: .normal)
+            $0.titleLabel?.font = .tvingMedium(ofSize: 15)
+            $0.frame.size.height = 52
+        }
+        
         topBackBtn.do {
             $0.setImage(.backImg.resized(withPercentage: 1.4), for: .normal)
         }
@@ -85,7 +94,7 @@ private extension MyPageView {
     func setLayout() {
         
         topButtonSheet.snp.makeConstraints {
-            $0.height.equalTo(48)
+            $0.height.equalTo(52)
             $0.top.equalTo(safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
         }
@@ -93,7 +102,7 @@ private extension MyPageView {
         myPageTableView.snp.makeConstraints {
             $0.top.equalTo(topButtonSheet.snp.bottom)
             $0.bottom.equalTo(safeAreaLayoutGuide).inset(52)
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(10)
         }
         
         topBackBtn.snp.makeConstraints {
@@ -116,27 +125,50 @@ private extension MyPageView {
 extension MyPageView: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionNum
+        return dummy.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section{
-        case 0: return settingMyDummy.count
-        case 1: return aboutTvingDummy.count
-        default: return 0
-        }
+        return dummy[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelNextBtnTableViewCell.identifier, for: indexPath) as? LabelNextBtnTableViewCell else { return UITableViewCell() }
-        
-        switch indexPath.section{
-        case 0: cell.configCell(settingMyDummy[indexPath.row])
-        case 1: cell.configCell(aboutTvingDummy[indexPath.row])
-        default:
-            print("sectionNum Error")
-        }
+        cell.configCell(dummy[indexPath.section][indexPath.row])
         return cell
     }
+
+}
+
+extension MyPageView: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection: Int) -> UIView? {
+        let sectionHeader = UIView()
+        return sectionHeader
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection: Int) -> UIView? {
+        let sectionHeader = UIView()
+        
+        let sectionSeparator = UIView()
+        if viewForFooterInSection != dummy.count - 1 {
+            sectionHeader.addSubview(sectionSeparator)
+            sectionSeparator.backgroundColor = .tvingGray3
+            sectionSeparator.snp.makeConstraints {
+                $0.height.equalTo(0.5)
+                $0.bottom.equalToSuperview()
+                $0.leading.trailing.equalToSuperview()
+            }
+        }
+        
+        return sectionHeader
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
+    }
 }
