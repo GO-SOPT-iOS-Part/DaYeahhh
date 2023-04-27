@@ -15,7 +15,7 @@ class MainViewController: TVINGBaseViewController {
     // MARK: - Property
 
     private let mainView = MainView()
-    var user: TvingUserInfo?
+    var user: TvingUser?
     
     // MARK: - Target
 
@@ -49,7 +49,7 @@ extension MainViewController {
     
     // MARK: - Custom func
 
-    func userDataBind(orignalUser: TvingUserInfo) {
+    func userDataBind(orignalUser: TvingUser) {
         user = orignalUser
     }
 

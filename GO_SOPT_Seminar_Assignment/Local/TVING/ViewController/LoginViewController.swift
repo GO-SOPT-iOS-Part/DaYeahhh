@@ -10,12 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-class TvingUserInfo {
-    var id: String?
-    var password: String?
-    var nickName: String?
-}
-
 final class LoginViewController: BaseViewController {
     
     // MARK: - Property
@@ -23,7 +17,7 @@ final class LoginViewController: BaseViewController {
     private let mainView = LoginView()
     private let nickNameBottomSheet = AddNickNameBottomSheetView()
     
-    let originUser = TvingUserInfo()
+    let originUser = TvingUser()
     
     private var bottomSheetKeyboardEnable: Bool = false
     

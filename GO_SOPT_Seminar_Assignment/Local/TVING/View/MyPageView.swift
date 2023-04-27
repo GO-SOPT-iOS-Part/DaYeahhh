@@ -17,7 +17,7 @@ class MyPageView: UIView {
     private let topButtonSheet = UIView()
     private let myPageTableView = UITableView()
     
-    private let headerView = MyPageHeaderView()
+    let headerView = MyPageHeaderView()
     let logOutBtn = TvingButton()
     
     let topBackBtn = UIButton()
@@ -164,7 +164,6 @@ extension MyPageView: UITableViewDelegate {
                 $0.leading.trailing.equalToSuperview()
             }
         }
-        
         return sectionHeader
     }
     

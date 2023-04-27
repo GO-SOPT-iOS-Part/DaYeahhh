@@ -16,11 +16,11 @@ class MyPageHeaderView: UIStackView {
     
     private let profileView = UIView()
     private let mySubscribeCashView = UIStackView()
-    private let subscriptionView = UIView()
+    private let subscriptionView = UIButton()
     
-    let profileImg = UIImageView()
-    let profileName = UILabel()
-    let profileChangeBtn = TvingButton()
+    var profileImg = UIImageView()
+    var profileName = UILabel()
+    var profileChangeBtn = TvingButton()
     
     private let mySubscribe = UIView()
     private let mySubscribeImg = UIImageView()
@@ -34,6 +34,7 @@ class MyPageHeaderView: UIStackView {
     
     private let subscriptionLabel = UILabel()
     private let subscriptionAttachImg = NSTextAttachment()
+    private let subscriptionNextImg = UIImageView()
     
     // MARK: - init
     
@@ -124,6 +125,9 @@ class MyPageHeaderView: UIStackView {
             $0.textColor = .tvingGray2
             $0.font = .tvingMedium(ofSize: 12)
         }
+        subscriptionNextImg.do {
+            $0.image = .nextImg.resized(withPercentage: 0.65)
+        }
     }
     
     func setHierarchy() {
@@ -137,7 +141,8 @@ class MyPageHeaderView: UIStackView {
                                 profileChangeBtn)
         mySubscribeCashView.addArrangedSubviews(mySubscribe,
                                               myCash)
-        subscriptionView.addSubview(subscriptionLabel)
+        subscriptionView.addSubviews(subscriptionLabel,
+                                     subscriptionNextImg)
         
         mySubscribe.addSubviews(mySubscribeImg,
                                 mySubscribeLabel,
@@ -148,7 +153,7 @@ class MyPageHeaderView: UIStackView {
     }
     
     func setLayout() {
-        
+
         profileView.snp.makeConstraints {
             $0.height.equalTo(100)
         }
@@ -167,7 +172,7 @@ class MyPageHeaderView: UIStackView {
         profileName.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.centerY.equalToSuperview()
-            $0.leading.equalTo(profileImg.snp.trailing).offset(20)
+            $0.leading.equalTo(profileImg.snp.trailing).offset(15)
         }
         profileChangeBtn.snp.makeConstraints {
             $0.width.equalTo(80)
@@ -212,6 +217,10 @@ class MyPageHeaderView: UIStackView {
         subscriptionLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(15)
+        }
+        subscriptionNextImg.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(15)
         }
     }
 }
