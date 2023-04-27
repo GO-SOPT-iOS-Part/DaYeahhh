@@ -10,13 +10,9 @@
 		6B09E72529F6ECE500EFECAB /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B09E72429F6ECE500EFECAB /* MyPageView.swift */; };
 		6B09E72729F6ECFB00EFECAB /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B09E72629F6ECFB00EFECAB /* MyPageViewController.swift */; };
 		6B09E72929F6ED7900EFECAB /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B09E72829F6ED7900EFECAB /* UIImage+.swift */; };
-		6B09E72B29F6EF2200EFECAB /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B09E72A29F6EF2200EFECAB /* notification.png */; };
-		6B09E72D29F6EF3400EFECAB /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B09E72C29F6EF3400EFECAB /* settings.png */; };
 		6B09E72F29F6F33200EFECAB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B09E72E29F6F33200EFECAB /* MainView.swift */; };
 		6B09E73129F6F34200EFECAB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B09E73029F6F34200EFECAB /* MainViewController.swift */; };
 		6B09E73329F6FB4E00EFECAB /* doosan.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B09E73229F6FB4E00EFECAB /* doosan.png */; };
-		6B09E73929F7041100EFECAB /* jtbc.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B09E73429F7041100EFECAB /* jtbc.png */; };
-		6B09E73A29F7041100EFECAB /* tvn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B09E73529F7041100EFECAB /* tvn.png */; };
 		6B5944FD29F5BE000087A4C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5944FC29F5BE000087A4C3 /* AppDelegate.swift */; };
 		6B5944FF29F5BE000087A4C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5944FE29F5BE000087A4C3 /* SceneDelegate.swift */; };
 		6B59450629F5BE010087A4C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B59450529F5BE010087A4C3 /* Assets.xcassets */; };
@@ -66,19 +62,18 @@
 		6BF94B1829F995B70024C256 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF94B1729F995B70024C256 /* CALayer+.swift */; };
 		6BF94B1B29F9AA6E0024C256 /* tvingSubscribe.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF94B1929F9AA6E0024C256 /* tvingSubscribe.png */; };
 		6BF94B1C29F9AA6E0024C256 /* tvingCash.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF94B1A29F9AA6E0024C256 /* tvingCash.png */; };
+		6BF94B1E29FA5A120024C256 /* tvnJtbc.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF94B1D29FA5A120024C256 /* tvnJtbc.png */; };
+		6BF94B3F29FA8D950024C256 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF94B3D29FA8D950024C256 /* settings.png */; };
+		6BF94B4029FA8D950024C256 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF94B3E29FA8D950024C256 /* notification.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6B09E72429F6ECE500EFECAB /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		6B09E72629F6ECFB00EFECAB /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		6B09E72829F6ED7900EFECAB /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
-		6B09E72A29F6EF2200EFECAB /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
-		6B09E72C29F6EF3400EFECAB /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		6B09E72E29F6F33200EFECAB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		6B09E73029F6F34200EFECAB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6B09E73229F6FB4E00EFECAB /* doosan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doosan.png; sourceTree = "<group>"; };
-		6B09E73429F7041100EFECAB /* jtbc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jtbc.png; sourceTree = "<group>"; };
-		6B09E73529F7041100EFECAB /* tvn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tvn.png; sourceTree = "<group>"; };
 		6B5944F929F5BE000087A4C3 /* GO_SOPT_Seminar_Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GO_SOPT_Seminar_Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B5944FC29F5BE000087A4C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B5944FE29F5BE000087A4C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +123,9 @@
 		6BF94B1729F995B70024C256 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		6BF94B1929F9AA6E0024C256 /* tvingSubscribe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tvingSubscribe.png; sourceTree = "<group>"; };
 		6BF94B1A29F9AA6E0024C256 /* tvingCash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tvingCash.png; sourceTree = "<group>"; };
+		6BF94B1D29FA5A120024C256 /* tvnJtbc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tvnJtbc.png; sourceTree = "<group>"; };
+		6BF94B3D29FA8D950024C256 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		6BF94B3E29FA8D950024C256 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,16 +263,15 @@
 		6B59452029F5C2030087A4C3 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				6BF94B1D29FA5A120024C256 /* tvnJtbc.png */,
 				6BF94B0529F845C50024C256 /* bottomBtnImg */,
 				6BF94B0F29F91C0A0024C256 /* tvingImg.jpg */,
-				6B09E73429F7041100EFECAB /* jtbc.png */,
 				6BF94B1A29F9AA6E0024C256 /* tvingCash.png */,
+				6BF94B3E29FA8D950024C256 /* notification.png */,
+				6BF94B3D29FA8D950024C256 /* settings.png */,
 				6BF94B1929F9AA6E0024C256 /* tvingSubscribe.png */,
-				6B09E73529F7041100EFECAB /* tvn.png */,
 				6B59452929F5C2E60087A4C3 /* btn_before.png */,
 				6BF94B0B29F85D770024C256 /* nextBtn.png */,
-				6B09E72C29F6EF3400EFECAB /* settings.png */,
-				6B09E72A29F6EF2200EFECAB /* notification.png */,
 				6B59452329F5C2440087A4C3 /* eye-slash.png */,
 				6B09E73229F6FB4E00EFECAB /* doosan.png */,
 				6B59452129F5C2380087A4C3 /* eye-non-slash.png */,
@@ -380,20 +377,19 @@
 			files = (
 				6BF94B0129F8450F0024C256 /* preGray.jpg in Resources */,
 				6BF94AFD29F8450F0024C256 /* recordWhite.jpg in Resources */,
-				6B09E73929F7041100EFECAB /* jtbc.png in Resources */,
-				6B09E72D29F6EF3400EFECAB /* settings.png in Resources */,
 				6B59451C29F5C1370087A4C3 /* Pretendard-SemiBold.ttf in Resources */,
-				6B09E72B29F6EF2200EFECAB /* notification.png in Resources */,
+				6BF94B1E29FA5A120024C256 /* tvnJtbc.png in Resources */,
 				6BF94B1B29F9AA6E0024C256 /* tvingSubscribe.png in Resources */,
 				6BF94B0229F8450F0024C256 /* homeGray.jpg in Resources */,
 				6B59451D29F5C1370087A4C3 /* Pretendard-Medium.ttf in Resources */,
 				6BF94B1C29F9AA6E0024C256 /* tvingCash.png in Resources */,
 				6B59451E29F5C1370087A4C3 /* Pretendard-Regular.ttf in Resources */,
-				6B09E73A29F7041100EFECAB /* tvn.png in Resources */,
 				6BF94B0429F8450F0024C256 /* preWhite.jpg in Resources */,
 				6B09E73329F6FB4E00EFECAB /* doosan.png in Resources */,
 				6B59452A29F5C2E60087A4C3 /* btn_before.png in Resources */,
+				6BF94B4029FA8D950024C256 /* notification.png in Resources */,
 				6B59452429F5C2440087A4C3 /* eye-slash.png in Resources */,
+				6BF94B3F29FA8D950024C256 /* settings.png in Resources */,
 				6B59450929F5BE010087A4C3 /* LaunchScreen.storyboard in Resources */,
 				6B59450629F5BE010087A4C3 /* Assets.xcassets in Resources */,
 				6BF94B0329F8450F0024C256 /* searchGray.jpg in Resources */,

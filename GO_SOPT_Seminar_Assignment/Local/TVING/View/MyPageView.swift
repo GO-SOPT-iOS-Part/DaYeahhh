@@ -69,13 +69,13 @@ private extension MyPageView {
         }
         
         topBackBtn.do {
-            $0.setImage(.backImg.resized(withPercentage: 1.4), for: .normal)
+            $0.setImage(.backImg, for: .normal)
         }
         topNotificationBtn.do {
-            $0.setImage(.bellImg.resized(withPercentage: 1.4), for: .normal)
+            $0.setImage(.notificationImg.resized(withPercentage: 0.05), for: .normal)
         }
         topSettingBtn.do {
-            $0.setImage(.settingImg.resized(withPercentage: 1.4), for: .normal)
+            $0.setImage(.settingImg.resized(withPercentage: 0.045), for: .normal)
         }
     }
     
@@ -157,7 +157,7 @@ extension MyPageView: UITableViewDelegate {
         let sectionSeparator = UIView()
         if viewForFooterInSection != dummy.count - 1 {
             sectionHeader.addSubview(sectionSeparator)
-            sectionSeparator.backgroundColor = .tvingGray3
+            sectionSeparator.backgroundColor = .tvingGray4
             sectionSeparator.snp.makeConstraints {
                 $0.height.equalTo(0.5)
                 $0.bottom.equalToSuperview()
