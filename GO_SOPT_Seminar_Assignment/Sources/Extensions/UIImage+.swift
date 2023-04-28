@@ -8,6 +8,14 @@
 import UIKit.UIImage
 
 extension UIImage {
+        
+    func resized(withPercentage percentage: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: size.width * percentage, height: size.height * percentage)
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
     
     static var backImg: UIImage { UIImage(named: "btn_before.png")! }
     static var nextImg: UIImage { UIImage(named: "nextBtn.png")! }
@@ -27,13 +35,12 @@ extension UIImage {
     static var bottomSearchW: UIImage { UIImage(named: "searchWhite.jpg")! }
     static var bottomRecordG: UIImage { UIImage(named: "recordGray.jpg")! }
     static var bottomRecordW: UIImage { UIImage(named: "recordWhite.jpg")! }
-        
-    func resized(withPercentage percentage: CGFloat) -> UIImage? {
-        let canvasSize = CGSize(width: size.width * percentage, height: size.height * percentage)
-        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
-        defer { UIGraphicsEndImageContext() }
-        draw(in: CGRect(origin: .zero, size: canvasSize))
-        return UIGraphicsGetImageFromCurrentImageContext()
-    }
-    
+
+    static var yourNamePoster: UIImage { UIImage(named: "YourNamePoster.png")! }
+    static var harryPotterPoster: UIImage { UIImage(named: "HarryPotterPoster.png")! }
+    static var loardOfTheKingPoster: UIImage { UIImage(named: "LoardOfTheKingPoster.png")! }
+    static var signalPoster: UIImage { UIImage(named: "signalPoster.png")! }
+    static var suzumePoster: UIImage { UIImage(named: "SuzumePoster.png")! }
+
+
 }
