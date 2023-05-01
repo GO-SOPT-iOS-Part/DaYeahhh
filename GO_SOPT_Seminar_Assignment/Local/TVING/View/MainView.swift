@@ -20,27 +20,25 @@ class MainView: BaseView {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 30
         
-           let layout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-               
-               guard let sectionLayout = MainViewSectionLayout(rawValue: Contents.sectionLayout()[sectionIndex]) else {return nil}
-               
-               let itemSize = sectionLayout.itemSize
-               let item = NSCollectionLayoutItem(layoutSize: itemSize)
-               
-               let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [item])
-               
-               let section = NSCollectionLayoutSection(group: group)
-               section.orthogonalScrollingBehavior = sectionLayout.orthogonalScrollinBehavior
-               section.interGroupSpacing = sectionLayout.interGroupSpacing
-               section.boundarySupplementaryItems = sectionLayout.header
-               
-               return section
-           }, configuration: config)
-           
-           return layout
-           
-       }
-
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            guard let sectionLayout = MainViewSectionLayout(rawValue: Contents.sectionLayout()[sectionIndex]) else {return nil}
+            
+            let itemSize = sectionLayout.itemSize
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [item])
+            let section = NSCollectionLayoutSection(group: group)
+            
+            section.orthogonalScrollingBehavior = sectionLayout.orthogonalScrollinBehavior
+            section.interGroupSpacing = sectionLayout.interGroupSpacing
+            section.boundarySupplementaryItems = sectionLayout.header
+            
+            return section
+        }, configuration: config)
+        
+        return layout
+    }
+    
     // MARK: - style
     
     override func setStyle() {
@@ -51,6 +49,7 @@ class MainView: BaseView {
             $0.backgroundColor = .black
             $0.delegate = self
             $0.dataSource = self
+            $0.contentInsetAdjustmentBehavior = .never
         }
     }
     
@@ -67,9 +66,8 @@ class MainView: BaseView {
         }
     }
 }
-extension MainView: UICollectionViewDelegate {
-    
-}
+
+extension MainView: UICollectionViewDelegate { }
 
 extension MainView: UICollectionViewDataSource {
     

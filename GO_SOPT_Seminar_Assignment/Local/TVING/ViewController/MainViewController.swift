@@ -38,9 +38,13 @@ class MainViewController: TVINGBaseViewController {
     }
     
     override func sethirarchy() {
+        super.sethirarchy()
+        
         view.addSubviews(topMenu)
     }
     override func setLayout() {
+        super.setLayout()
+        
         topMenu.snp.makeConstraints {
             $0.height.equalTo(50)
             $0.top.equalTo(view.safeAreaLayoutGuide)
