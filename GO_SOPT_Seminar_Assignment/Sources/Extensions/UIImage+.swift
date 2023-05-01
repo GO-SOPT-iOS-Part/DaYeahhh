@@ -35,12 +35,28 @@ extension UIImage {
     static var bottomSearchW: UIImage { UIImage(named: "searchWhite.jpg")! }
     static var bottomRecordG: UIImage { UIImage(named: "recordGray.jpg")! }
     static var bottomRecordW: UIImage { UIImage(named: "recordWhite.jpg")! }
+    
+    static var faded: UIImage { UIImage(named: "Faded.png")! }
 
     static var yourNamePoster: UIImage { UIImage(named: "YourNamePoster.png")! }
     static var harryPotterPoster: UIImage { UIImage(named: "HarryPotterPoster.png")! }
-    static var loardOfTheKingPoster: UIImage { UIImage(named: "LoardOfTheKingPoster.png")! }
+    static var loardOfTheKingPoster: UIImage { UIImage(named: "LordOfTheRingPoster.png")! }
     static var signalPoster: UIImage { UIImage(named: "signalPoster.png")! }
     static var suzumePoster: UIImage { UIImage(named: "SuzumePoster.png")! }
+    static var mtPoster: UIImage { UIImage(named: "MT.jpg")! }
 
+    static var banner1: UIImage { UIImage(named: "Banner1.jpg")! }
+    static var banner2: UIImage { UIImage(named: "Banner2.jpg")! }
+    static var banner3: UIImage { UIImage(named: "Banner3.jpg")! }
+
+    static var live1: UIImage { UIImage(named: "Live1.jpg")! }
+    static var live2: UIImage { UIImage(named: "Live2.jpg")! }
+    static var live3: UIImage { UIImage(named: "Live3.jpg")! }
+    
+    static var paramount1: UIImage { UIImage(named: "paramount1.jpg")! }
+    static var paramount2: UIImage { UIImage(named: "paramount2.jpg")! }
+    static var paramount3: UIImage { UIImage(named: "paramount3.jpg")! }
+    static var paramount4: UIImage { UIImage(named: "paramount4.jpg")! }
+    static var paramount5: UIImage { UIImage(named: "paramount5.jpg")! }
 
 }

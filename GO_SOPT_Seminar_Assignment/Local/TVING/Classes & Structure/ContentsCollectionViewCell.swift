@@ -1,0 +1,93 @@
+//
+//  ContentsCollectionViewCell.swift
+//  GO_SOPT_Seminar_Assignment
+//
+//  Created by 김다예 on 2023/04/29.
+//
+
+import UIKit
+
+class ContentsCollectionViewCell: UICollectionViewCell {
+    
+    static let identifier = "ContentsCell"
+    
+    let contentsStackView = UIStackView()
+    let contentsImg = UIImageView()
+    let contentsName = UILabel()
+    let contentsSubName = UILabel()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setStyle()
+        setHierarchy()
+        setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+extension ContentsCollectionViewCell {
+    
+    func setStyle() {
+        contentsStackView.do {
+            $0.axis = .vertical
+            $0.distribution = .fill
+        }
+        contentsName.do {
+            $0.font = .tvingMedium(ofSize: 12)
+            $0.textColor = .tvingGray2
+        }
+        contentsSubName.do {
+            $0.font = .tvingRegular(ofSize: 10)
+            $0.textColor = .tvingGray2
+            $0.numberOfLines = 2
+        }
+    }
+    
+    func setHierarchy() {
+        self.addSubviews(contentsStackView)
+        contentsStackView.addArrangedSubviews(contentsImg,
+                                              contentsName,
+                                              contentsSubName)
+    }
+    
+    func setLayout() {
+        contentsStackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        contentsImg.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+        }
+        contentsName.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.leading.trailing.equalToSuperview()
+        }
+        contentsSubName.snp.makeConstraints {
+            $0.height.equalTo(25)
+            $0.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    func configureCell(_ contents: Contents) {
+        contentsImg.image = contents.image
+        contentsName.text = contents.name
+        contentsSubName.text = contents.subName
+        
+        if (contentsName.text == nil) {
+            contentsName.isHidden = true
+        } else {
+            contentsName.isHidden = false
+        }
+        if (contentsSubName.text == nil) {
+            contentsSubName.isHidden = true
+        } else {
+            contentsSubName.isHidden = false
+        }
+        
+    }
+    
+}

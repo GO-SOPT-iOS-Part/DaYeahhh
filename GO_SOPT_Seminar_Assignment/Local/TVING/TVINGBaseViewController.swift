@@ -29,6 +29,7 @@ class TVINGBaseViewController: BaseViewController {
         bottomMenu.do {
             $0.axis = .horizontal
             $0.distribution = .fillEqually
+            $0.backgroundColor = .black
         }
         bottomHomeBtn.do {
             $0.setImage(.bottomHomeW, for: .normal)

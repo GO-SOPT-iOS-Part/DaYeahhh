@@ -10,51 +10,89 @@ import UIKit
 import SnapKit
 import Then
 
-class MainView: UIView {
+class MainView: BaseView {
     
-    let goToMyPageBtn = UIButton()
+    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    private let dummy = Contents.dummy()
     
-    // MARK: - init
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private func createLayout() -> UICollectionViewLayout {
         
-        style()
-        hierarchy()
-        setLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-}
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 30
+        
+           let layout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+               
+               guard let sectionLayout = MainViewSectionLayout(rawValue: Contents.sectionLayout()[sectionIndex]) else {return nil}
+               
+               let itemSize = sectionLayout.itemSize
+               let item = NSCollectionLayoutItem(layoutSize: itemSize)
+               
+               let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [item])
+               
+               let section = NSCollectionLayoutSection(group: group)
+               section.orthogonalScrollingBehavior = sectionLayout.orthogonalScrollinBehavior
+               section.interGroupSpacing = sectionLayout.interGroupSpacing
+               section.boundarySupplementaryItems = sectionLayout.header
+               
+               return section
+           }, configuration: config)
+           
+           return layout
+           
+       }
 
-private extension MainView {
-    
     // MARK: - style
-
-    func style() {
-        goToMyPageBtn.do {
-            $0.setTitle("마이페이지", for: .normal)
-            $0.titleLabel?.textAlignment = .center
-            $0.titleLabel?.font = .tvingRegular(ofSize: 16)
-            $0.backgroundColor = .tvingRed
-            $0.layer.cornerRadius = 3
+    
+    override func setStyle() {
+        collectionView.do {
+            $0.register(ContentsCollectionViewCell.self, forCellWithReuseIdentifier: ContentsCollectionViewCell.identifier)
+            $0.register(MainViewSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainViewSectionHeader.identifier)
+            $0.collectionViewLayout = createLayout()
+            $0.backgroundColor = .black
+            $0.delegate = self
+            $0.dataSource = self
         }
     }
     
     // MARK: - layout
-
-    func hierarchy() {
-        self.addSubviews(goToMyPageBtn)
+    
+    override func setHierarchy() {
+        self.addSubviews(collectionView)
     }
     
-    func setLayout() {
-        goToMyPageBtn.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.height.equalTo(48)
-            $0.width.equalTo(96)
+    override func setLayout() {
+        collectionView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(52)
         }
     }
+}
+extension MainView: UICollectionViewDelegate {
+    
+}
+
+extension MainView: UICollectionViewDataSource {
+    
+    // section 개수
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return dummy.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dummy[section].count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentsCollectionViewCell.identifier, for: indexPath) as? ContentsCollectionViewCell else { return UICollectionViewCell()}
+        cell.configureCell(dummy[indexPath.section][indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader, // 헤더일때
+              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MainViewSectionHeader.identifier, for: indexPath) as? MainViewSectionHeader else {return UICollectionReusableView()}
+        header.mainLabel.text = Contents.sectionName()[indexPath.section]
+        return header
+    }
+    
 }

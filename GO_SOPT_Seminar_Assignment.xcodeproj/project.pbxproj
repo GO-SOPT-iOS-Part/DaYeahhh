@@ -42,6 +42,9 @@
 		6B59454829F5C5590087A4C3 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B59454729F5C5590087A4C3 /* UIView+.swift */; };
 		6B59454D29F5C6300087A4C3 /* AddNickNameBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B59454C29F5C6300087A4C3 /* AddNickNameBottomSheetView.swift */; };
 		6B59454F29F5C6560087A4C3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B59454E29F5C6560087A4C3 /* LoginView.swift */; };
+		6B6C2F5929FECF2000F76247 /* MainViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C2F5829FECF2000F76247 /* MainViewSectionHeader.swift */; };
+		6B6C2F5F29FF9BC100F76247 /* MainViewSectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C2F5E29FF9BC100F76247 /* MainViewSectionLayout.swift */; };
+		6B6C2F6129FFB8CA00F76247 /* MainViewCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C2F6029FFB8CA00F76247 /* MainViewCustomLayout.swift */; };
 		6BF94AF429F83F6D0024C256 /* TVINGBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF94AF329F83F6D0024C256 /* TVINGBaseViewController.swift */; };
 		6BF94AFD29F8450F0024C256 /* recordWhite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BF94AF529F8450E0024C256 /* recordWhite.jpg */; };
 		6BF94AFE29F8450F0024C256 /* recordGray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BF94AF629F8450E0024C256 /* recordGray.jpg */; };
@@ -64,6 +67,8 @@
 		6BF94B3F29FA8D950024C256 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF94B3D29FA8D950024C256 /* settings.png */; };
 		6BF94B4029FA8D950024C256 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF94B3E29FA8D950024C256 /* notification.png */; };
 		6BF94B4329FAE94F0024C256 /* TvingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF94B4229FAE94F0024C256 /* TvingUser.swift */; };
+		6BF94B4C29FD42CD0024C256 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF94B4B29FD42CD0024C256 /* Contents.swift */; };
+		6BF94B4E29FD461C0024C256 /* ContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF94B4D29FD461C0024C256 /* ContentsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +107,9 @@
 		6B59454729F5C5590087A4C3 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		6B59454C29F5C6300087A4C3 /* AddNickNameBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNickNameBottomSheetView.swift; sourceTree = "<group>"; };
 		6B59454E29F5C6560087A4C3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		6B6C2F5829FECF2000F76247 /* MainViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewSectionHeader.swift; sourceTree = "<group>"; };
+		6B6C2F5E29FF9BC100F76247 /* MainViewSectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewSectionLayout.swift; sourceTree = "<group>"; };
+		6B6C2F6029FFB8CA00F76247 /* MainViewCustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCustomLayout.swift; sourceTree = "<group>"; };
 		6BF94AF329F83F6D0024C256 /* TVINGBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVINGBaseViewController.swift; sourceTree = "<group>"; };
 		6BF94AF529F8450E0024C256 /* recordWhite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recordWhite.jpg; sourceTree = "<group>"; };
 		6BF94AF629F8450E0024C256 /* recordGray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recordGray.jpg; sourceTree = "<group>"; };
@@ -124,6 +132,8 @@
 		6BF94B3D29FA8D950024C256 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		6BF94B3E29FA8D950024C256 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
 		6BF94B4229FAE94F0024C256 /* TvingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingUser.swift; sourceTree = "<group>"; };
+		6BF94B4B29FD42CD0024C256 /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
+		6BF94B4D29FD461C0024C256 /* ContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +291,7 @@
 				6B59454C29F5C6300087A4C3 /* AddNickNameBottomSheetView.swift */,
 				6B59454E29F5C6560087A4C3 /* LoginView.swift */,
 				6B09E72E29F6F33200EFECAB /* MainView.swift */,
+				6B6C2F5829FECF2000F76247 /* MainViewSectionHeader.swift */,
 				6B09E72429F6ECE500EFECAB /* MyPageView.swift */,
 				6BF94B1529F986170024C256 /* MyPageHeaderView.swift */,
 			);
@@ -308,6 +319,10 @@
 				6BF94B1129F91CD90024C256 /* TvingButton.swift */,
 				6BF94B1329F92B3B0024C256 /* MyPageMenu.swift */,
 				6BF94B4229FAE94F0024C256 /* TvingUser.swift */,
+				6BF94B4B29FD42CD0024C256 /* Contents.swift */,
+				6BF94B4D29FD461C0024C256 /* ContentsCollectionViewCell.swift */,
+				6B6C2F5E29FF9BC100F76247 /* MainViewSectionLayout.swift */,
+				6B6C2F6029FFB8CA00F76247 /* MainViewCustomLayout.swift */,
 			);
 			path = "Classes & Structure";
 			sourceTree = "<group>";
@@ -425,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BF94B1629F986170024C256 /* MyPageHeaderView.swift in Sources */,
+				6BF94B4C29FD42CD0024C256 /* Contents.swift in Sources */,
 				6B59454029F5C5090087A4C3 /* UIFont+.swift in Sources */,
 				6B59454D29F5C6300087A4C3 /* AddNickNameBottomSheetView.swift in Sources */,
 				6BF94B1429F92B3B0024C256 /* MyPageMenu.swift in Sources */,
@@ -441,14 +457,18 @@
 				6B5944FF29F5BE000087A4C3 /* SceneDelegate.swift in Sources */,
 				6B59454829F5C5590087A4C3 /* UIView+.swift in Sources */,
 				6BF94B0829F84C350024C256 /* LabelNextBtnTableViewCell.swift in Sources */,
+				6B6C2F6129FFB8CA00F76247 /* MainViewCustomLayout.swift in Sources */,
 				6B59454F29F5C6560087A4C3 /* LoginView.swift in Sources */,
+				6BF94B4E29FD461C0024C256 /* ContentsCollectionViewCell.swift in Sources */,
 				6B59454629F5C5490087A4C3 /* UITextField+.swift in Sources */,
 				6BF94AF429F83F6D0024C256 /* TVINGBaseViewController.swift in Sources */,
 				6B59453029F5C3F80087A4C3 /* CustomPasswordTextField.swift in Sources */,
 				6B09E73129F6F34200EFECAB /* MainViewController.swift in Sources */,
+				6B6C2F5929FECF2000F76247 /* MainViewSectionHeader.swift in Sources */,
 				6B59454429F5C5380087A4C3 /* UIStackView+.swift in Sources */,
 				6B09E72729F6ECFB00EFECAB /* MyPageViewController.swift in Sources */,
 				6B59454229F5C51D0087A4C3 /* UILabel+.swift in Sources */,
+				6B6C2F5F29FF9BC100F76247 /* MainViewSectionLayout.swift in Sources */,
 				6B09E72529F6ECE500EFECAB /* MyPageView.swift in Sources */,
 				6B09E72F29F6F33200EFECAB /* MainView.swift in Sources */,
 				6B09E72929F6ED7900EFECAB /* UIImage+.swift in Sources */,

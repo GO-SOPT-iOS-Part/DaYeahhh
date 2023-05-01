@@ -20,7 +20,7 @@ class MainViewController: TVINGBaseViewController {
     // MARK: - Target
 
     private func target() {
-        mainView.goToMyPageBtn.addTarget(self, action: #selector(tappedGoToMyPageBtn), for: .touchUpInside)
+        
     }
 
     // MARK: - Lift Cycle
