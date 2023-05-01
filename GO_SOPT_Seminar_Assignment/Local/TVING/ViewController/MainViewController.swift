@@ -15,12 +15,14 @@ class MainViewController: TVINGBaseViewController {
     // MARK: - Property
 
     private let mainView = MainView()
+    let topMenu = MainViewTop()
+    
     var user: TvingUser?
     
     // MARK: - Target
 
     private func target() {
-        
+        topMenu.topprofileBtn.addTarget(self, action: #selector(tappedGoToMyPageBtn), for: .touchUpInside)
     }
 
     // MARK: - Lift Cycle
@@ -33,6 +35,17 @@ class MainViewController: TVINGBaseViewController {
         super.viewDidLoad()
 
         target()
+    }
+    
+    override func sethirarchy() {
+        view.addSubviews(topMenu)
+    }
+    override func setLayout() {
+        topMenu.snp.makeConstraints {
+            $0.height.equalTo(50)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+        }
     }
 }
 
@@ -54,3 +67,4 @@ extension MainViewController {
     }
 
 }
+

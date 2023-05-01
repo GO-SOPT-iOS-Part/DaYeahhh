@@ -16,10 +16,12 @@ extension UIImage {
         draw(in: CGRect(origin: .zero, size: canvasSize))
         return UIGraphicsGetImageFromCurrentImageContext()
     }
-    
+    static var tvingWhiteLogo: UIImage { UIImage(named: "TvingWhiteLogo.png")! }
+
     static var backImg: UIImage { UIImage(named: "btn_before.png")! }
     static var nextImg: UIImage { UIImage(named: "nextBtn.png")! }
     
+    static var pairingImg: UIImage { UIImage(named: "pairing.png")! }
     static var notificationImg: UIImage { UIImage(named: "notification.png")! }
     static var settingImg: UIImage { UIImage(named: "settings.png")! }
     static var profileImg: UIImage { UIImage(named: "tvingImg.jpg")! }
