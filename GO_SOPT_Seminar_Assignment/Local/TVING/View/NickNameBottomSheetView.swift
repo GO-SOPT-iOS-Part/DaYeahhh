@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class AddNickNameBottomSheetView: UIView {
+final class NickNameBottomSheetView: UIView {
     
     // MARK: - Property
 
@@ -38,7 +38,7 @@ final class AddNickNameBottomSheetView: UIView {
     }
 }
 
-private extension AddNickNameBottomSheetView {
+private extension NickNameBottomSheetView {
     
     // MARK: - style
 

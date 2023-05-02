@@ -15,7 +15,7 @@ final class LoginViewController: BaseViewController {
     // MARK: - Property
     
     private let mainView = LoginView()
-    private let nickNameBottomSheet = AddNickNameBottomSheetView()
+    private let nickNameBottomSheet = NickNameBottomSheetView()
     
     let originUser = TvingUser()
     

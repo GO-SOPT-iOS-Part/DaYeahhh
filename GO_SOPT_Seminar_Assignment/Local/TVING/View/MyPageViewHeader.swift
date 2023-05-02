@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MyPageHeaderView: UIStackView {
+class MyPageViewHeader: UIStackView {
         
     // MARK: - Propterty
     
@@ -20,7 +20,7 @@ class MyPageHeaderView: UIStackView {
     
     var profileImg = UIImageView()
     var profileName = UILabel()
-    var profileChangeBtn = TvingButton()
+    var profileChangeBtn = CustomTvingButton()
     
     private let mySubscribe = UIView()
     private let mySubscribeImg = UIImageView()

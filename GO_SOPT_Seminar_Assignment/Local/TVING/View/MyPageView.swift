@@ -10,15 +10,15 @@ import UIKit
 import SnapKit
 import Then
 
-class MyPageView: UIView {
+class MyPageView: BaseView {
     
     // MARK: - Property
     
     private let topButtonSheet = UIView()
     private let myPageTableView = UITableView()
     
-    let headerView = MyPageHeaderView()
-    let logOutBtn = TvingButton()
+    let headerView = MyPageViewHeader()
+    let logOutBtn = CustomTvingButton()
     
     let topBackBtn = UIButton()
     let topNotificationBtn = UIButton()
@@ -26,26 +26,10 @@ class MyPageView: UIView {
     
     private let dummy = MyPageMenu.dummy()
     
-    // MARK: - init
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        style()
-        hierarchy()
-        setLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-private extension MyPageView {
-    
     // MARK: - style
     
-    func style() {
+    override func setStyle() {
+        super.setStyle()
         
         myPageTableView.do {
             $0.register(LabelNextBtnTableViewCell.self,
@@ -53,7 +37,6 @@ private extension MyPageView {
             $0.rowHeight = 52
             $0.delegate = self
             $0.dataSource = self
-            $0.showsVerticalScrollIndicator = false
             $0.sectionHeaderTopPadding = 0
             $0.separatorStyle = .none
             $0.backgroundColor = .black
@@ -81,7 +64,7 @@ private extension MyPageView {
     
     // MARK: - layout
     
-    func hierarchy() {
+    override func setHierarchy() {
         
         self.addSubviews(topButtonSheet,
                          myPageTableView)
@@ -91,7 +74,7 @@ private extension MyPageView {
                                    topSettingBtn)
     }
     
-    func setLayout() {
+    override func setLayout() {
         
         topButtonSheet.snp.makeConstraints {
             $0.height.equalTo(52)
@@ -137,7 +120,7 @@ extension MyPageView: UITableViewDataSource {
         cell.configCell(dummy[indexPath.section][indexPath.row])
         return cell
     }
-
+    
 }
 
 extension MyPageView: UITableViewDelegate {
@@ -152,11 +135,11 @@ extension MyPageView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection: Int) -> UIView? {
-        let sectionHeader = UIView()
+        let sectionFooter = UIView()
         
         let sectionSeparator = UIView()
         if viewForFooterInSection != dummy.count - 1 {
-            sectionHeader.addSubview(sectionSeparator)
+            sectionFooter.addSubview(sectionSeparator)
             sectionSeparator.backgroundColor = .tvingGray4
             sectionSeparator.snp.makeConstraints {
                 $0.height.equalTo(0.5)
@@ -164,7 +147,7 @@ extension MyPageView: UITableViewDelegate {
                 $0.leading.trailing.equalToSuperview()
             }
         }
-        return sectionHeader
+        return sectionFooter
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

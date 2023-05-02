@@ -39,9 +39,11 @@ extension Contents {
         
         return contents
     }
+    
     static func sectionName() -> [String] {
         return ["", "티빙에서 꼭 봐야하는 콘텐츠", "", "인기 LIVE 채널", "파라마운트+의 따끈한 신작"]
     }
+    
     static func sectionLayout() -> [String] {
         return ["Header", "Normal", "Banner", "Live", "Normal"]
     }

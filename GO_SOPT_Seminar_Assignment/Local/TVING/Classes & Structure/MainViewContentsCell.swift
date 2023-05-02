@@ -7,14 +7,16 @@
 
 import UIKit
 
-class ContentsCollectionViewCell: UICollectionViewCell {
+class MainViewContentsCell: UICollectionViewCell {
     
     static let identifier = "ContentsCell"
     
-    let contentsStackView = UIStackView()
-    let contentsImg = UIImageView()
-    let contentsName = UILabel()
-    let contentsSubName = UILabel()
+    private let contentsStackView = UIStackView()
+    private let contentsImg = UIImageView()
+    private let contentsName = UILabel()
+    private let contentsSubName = UILabel()
+    
+    var pageIndicatorNum: Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +32,7 @@ class ContentsCollectionViewCell: UICollectionViewCell {
     
 }
 
-extension ContentsCollectionViewCell {
+extension MainViewContentsCell {
     
     func setStyle() {
         contentsStackView.do {
@@ -49,7 +51,7 @@ extension ContentsCollectionViewCell {
     }
     
     func setHierarchy() {
-        self.addSubviews(contentsStackView)
+        contentView.addSubviews(contentsStackView)
         contentsStackView.addArrangedSubviews(contentsImg,
                                               contentsName,
                                               contentsSubName)
@@ -87,7 +89,6 @@ extension ContentsCollectionViewCell {
         } else {
             contentsSubName.isHidden = false
         }
-        
     }
-    
 }
+

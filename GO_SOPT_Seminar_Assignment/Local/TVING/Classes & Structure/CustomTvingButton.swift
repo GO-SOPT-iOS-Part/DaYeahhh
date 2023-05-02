@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class TvingButton: UIButton {
+class CustomTvingButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

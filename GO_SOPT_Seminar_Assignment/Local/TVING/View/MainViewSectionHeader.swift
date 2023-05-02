@@ -38,7 +38,8 @@ class MainViewSectionHeader: UICollectionReusableView {
     }
     
     func setHierarchy() {
-        self.addSubviews(mainLabel, seeAllButton)
+        self.addSubviews(mainLabel,
+                         seeAllButton)
     }
     func setLayout() {
         mainLabel.snp.makeConstraints {

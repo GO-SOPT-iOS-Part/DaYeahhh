@@ -15,7 +15,7 @@ class MainViewController: TVINGBaseViewController {
     // MARK: - Property
 
     private let mainView = MainView()
-    let topMenu = MainViewTop()
+    let topMenu = MainViewTopMenu()
     
     var user: TvingUser?
     
@@ -42,6 +42,7 @@ class MainViewController: TVINGBaseViewController {
         
         view.addSubviews(topMenu)
     }
+    
     override func setLayout() {
         super.setLayout()
         

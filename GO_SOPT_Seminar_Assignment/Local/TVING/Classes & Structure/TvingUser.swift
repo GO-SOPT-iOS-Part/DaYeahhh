@@ -8,6 +8,7 @@
 import Foundation
 
 class TvingUser {
+    
     var id: String?
     var password: String?
     var nickName: String?

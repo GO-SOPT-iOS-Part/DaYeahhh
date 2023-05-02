@@ -7,8 +7,8 @@
 
 import UIKit
 
-class LoginView: UIView {
-
+class LoginView: BaseView {
+    
     // MARK: - property
     
     private let mainLabel = UILabel()
@@ -28,28 +28,10 @@ class LoginView: UIView {
     
     lazy var backBtn = UIButton()
     
-    // MARK: - init
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        style()
-        hierarchy()
-        setLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-}
-
-private extension LoginView {
-    
     // MARK: - style
-
-    func style() {
-        self.backgroundColor = .black
+    
+    override func setStyle() {
+        super.setStyle()
         
         mainLabel.do {
             $0.text = "TVING ID 로그인"
@@ -143,8 +125,8 @@ private extension LoginView {
     }
     
     // MARK: - layout
-
-    func hierarchy() {
+    
+    override func setHierarchy() {
         self.addSubviews(mainLabel,
                          idTextField,
                          idInvalidLabel,
@@ -154,13 +136,13 @@ private extension LoginView {
                          makeAccountStackView,
                          backBtn)
         idPasswordStackView.addArrangedSubviews(findIdBtn,
-                                               findPasswordBtn)
+                                                findPasswordBtn)
         makeAccountStackView.addArrangedSubviews(askExistAccountLabel,
                                                  goToMakeNicknameBtn)
     }
     
     
-    func setLayout() {
+    override func setLayout() {
         
         mainLabel.snp.makeConstraints{
             $0.height.equalTo(37)

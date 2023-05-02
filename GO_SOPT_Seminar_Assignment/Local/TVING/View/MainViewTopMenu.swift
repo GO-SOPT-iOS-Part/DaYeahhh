@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewTop: UIView {
+class MainViewTopMenu: UIView {
 
     let topMenu = UIView()
     let topLogoBtn = UIButton()
@@ -40,12 +40,15 @@ class MainViewTop: UIView {
         }
         topprofileBtn.do {
             $0.setImage(.profileImg.resized(withPercentage: 0.1), for: .normal)
-            $0.layer.cornerRadius = 5
+            $0.makeRounded(radius: 3)
         }
     }
     private func setHierarchy() {
         self.addSubviews(topMenu)
-        topMenu.addSubviews(topLogoBtn, topPairingBtn, topprofileBtn)
+        
+        topMenu.addSubviews(topLogoBtn,
+                            topPairingBtn,
+                            topprofileBtn)
     }
     private func setLayout() {
         topMenu.snp.makeConstraints {
