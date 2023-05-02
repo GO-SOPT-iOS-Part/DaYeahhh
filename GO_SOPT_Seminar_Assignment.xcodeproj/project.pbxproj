@@ -44,7 +44,6 @@
 		6B59454F29F5C6560087A4C3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B59454E29F5C6560087A4C3 /* LoginView.swift */; };
 		6B6C2F5929FECF2000F76247 /* MainViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C2F5829FECF2000F76247 /* MainViewSectionHeader.swift */; };
 		6B6C2F5F29FF9BC100F76247 /* ContentsSectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C2F5E29FF9BC100F76247 /* ContentsSectionLayout.swift */; };
-		6B6C2F6129FFB8CA00F76247 /* MainViewCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C2F6029FFB8CA00F76247 /* MainViewCustomLayout.swift */; };
 		6B6C2F632A00180300F76247 /* MainViewTopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C2F622A00180300F76247 /* MainViewTopMenu.swift */; };
 		6B6C2F652A0019CE00F76247 /* pairing.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B6C2F642A0019CE00F76247 /* pairing.png */; };
 		6B6C2F682A0120E300F76247 /* MainViewPagingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C2F672A0120E300F76247 /* MainViewPagingIndicator.swift */; };
@@ -112,7 +111,6 @@
 		6B59454E29F5C6560087A4C3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6B6C2F5829FECF2000F76247 /* MainViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewSectionHeader.swift; sourceTree = "<group>"; };
 		6B6C2F5E29FF9BC100F76247 /* ContentsSectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsSectionLayout.swift; sourceTree = "<group>"; };
-		6B6C2F6029FFB8CA00F76247 /* MainViewCustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCustomLayout.swift; sourceTree = "<group>"; };
 		6B6C2F622A00180300F76247 /* MainViewTopMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTopMenu.swift; sourceTree = "<group>"; };
 		6B6C2F642A0019CE00F76247 /* pairing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pairing.png; sourceTree = "<group>"; };
 		6B6C2F672A0120E300F76247 /* MainViewPagingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPagingIndicator.swift; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 				6BF94B4B29FD42CD0024C256 /* Contents.swift */,
 				6B6C2F5E29FF9BC100F76247 /* ContentsSectionLayout.swift */,
 				6BF94B4D29FD461C0024C256 /* MainViewContentsCell.swift */,
-				6B6C2F6029FFB8CA00F76247 /* MainViewCustomLayout.swift */,
 			);
 			path = "Classes & Structure";
 			sourceTree = "<group>";
@@ -468,7 +465,6 @@
 				6B5944FF29F5BE000087A4C3 /* SceneDelegate.swift in Sources */,
 				6B59454829F5C5590087A4C3 /* UIView+.swift in Sources */,
 				6BF94B0829F84C350024C256 /* LabelNextBtnTableViewCell.swift in Sources */,
-				6B6C2F6129FFB8CA00F76247 /* MainViewCustomLayout.swift in Sources */,
 				6B59454F29F5C6560087A4C3 /* LoginView.swift in Sources */,
 				6BF94B4E29FD461C0024C256 /* MainViewContentsCell.swift in Sources */,
 				6B59454629F5C5490087A4C3 /* UITextField+.swift in Sources */,

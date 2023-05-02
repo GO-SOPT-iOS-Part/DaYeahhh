@@ -14,8 +14,8 @@ class MyPageView: BaseView {
     
     // MARK: - Property
     
-    private let topButtonSheet = UIView()
-    private let myPageTableView = UITableView()
+    private let topButtonMenu = UIView()
+    let myPageTableView = UITableView()
     
     let headerView = MyPageViewHeader()
     let logOutBtn = CustomTvingButton()
@@ -23,9 +23,7 @@ class MyPageView: BaseView {
     let topBackBtn = UIButton()
     let topNotificationBtn = UIButton()
     let topSettingBtn = UIButton()
-    
-    private let dummy = MyPageMenu.dummy()
-    
+        
     // MARK: - style
     
     override func setStyle() {
@@ -35,8 +33,6 @@ class MyPageView: BaseView {
             $0.register(LabelNextBtnTableViewCell.self,
                         forCellReuseIdentifier: LabelNextBtnTableViewCell.identifier)
             $0.rowHeight = 52
-            $0.delegate = self
-            $0.dataSource = self
             $0.sectionHeaderTopPadding = 0
             $0.separatorStyle = .none
             $0.backgroundColor = .black
@@ -66,24 +62,24 @@ class MyPageView: BaseView {
     
     override func setHierarchy() {
         
-        self.addSubviews(topButtonSheet,
+        self.addSubviews(topButtonMenu,
                          myPageTableView)
         
-        topButtonSheet.addSubviews(topBackBtn,
+        topButtonMenu.addSubviews(topBackBtn,
                                    topNotificationBtn,
                                    topSettingBtn)
     }
     
     override func setLayout() {
         
-        topButtonSheet.snp.makeConstraints {
+        topButtonMenu.snp.makeConstraints {
             $0.height.equalTo(52)
             $0.top.equalTo(safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
         }
         
         myPageTableView.snp.makeConstraints {
-            $0.top.equalTo(topButtonSheet.snp.bottom)
+            $0.top.equalTo(topButtonMenu.snp.bottom)
             $0.bottom.equalTo(safeAreaLayoutGuide).inset(52)
             $0.leading.trailing.equalToSuperview().inset(10)
         }
@@ -102,55 +98,5 @@ class MyPageView: BaseView {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(20)
         }
-    }
-}
-
-extension MyPageView: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return dummy.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummy[section].count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelNextBtnTableViewCell.identifier, for: indexPath) as? LabelNextBtnTableViewCell else { return UITableViewCell() }
-        cell.configCell(dummy[indexPath.section][indexPath.row])
-        return cell
-    }
-    
-}
-
-extension MyPageView: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection: Int) -> UIView? {
-        let sectionHeader = UIView()
-        return sectionHeader
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection: Int) -> UIView? {
-        let sectionFooter = UIView()
-        
-        let sectionSeparator = UIView()
-        if viewForFooterInSection != dummy.count - 1 {
-            sectionFooter.addSubview(sectionSeparator)
-            sectionSeparator.backgroundColor = .tvingGray4
-            sectionSeparator.snp.makeConstraints {
-                $0.height.equalTo(0.5)
-                $0.bottom.equalToSuperview()
-                $0.leading.trailing.equalToSuperview()
-            }
-        }
-        return sectionFooter
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
     }
 }
