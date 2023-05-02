@@ -42,6 +42,9 @@ class MainViewPagingIndicator: UICollectionReusableView {
             $0.pageIndicatorTintColor = .tvingGray3
             $0.currentPageIndicatorTintColor = .tvingGray1
             $0.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            if #available(iOS 14.0, *) {
+                $0.allowsContinuousInteraction = false
+            }
         }
     }
     
@@ -56,8 +59,7 @@ class MainViewPagingIndicator: UICollectionReusableView {
 }
 
 extension MainViewPagingIndicator: dataBindProtocol {
-    func dataBind(num: Int) {
-        currentPage = num
-        print(num)
+    func dataBind(page: Int) {
+        currentPage = page
     }
 }

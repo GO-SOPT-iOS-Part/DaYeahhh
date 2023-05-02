@@ -16,10 +16,10 @@ struct Contents {
 
 extension Contents {
     static func dummy() -> [[Contents]] {
-        let contents = [[Contents(image: .yourNamePoster, sectionNum: 0),
-                         Contents(image: .yourNamePoster, sectionNum: 0),
-                         Contents(image: .yourNamePoster, sectionNum: 0),
-                         Contents(image: .yourNamePoster, sectionNum: 0)],
+        let contents = [[Contents(image: .main1, sectionNum: 0),
+                         Contents(image: .main2, sectionNum: 0),
+                         Contents(image: .main3, sectionNum: 0),
+                         Contents(image: .main4, sectionNum: 0)],
                         [Contents(image: .loardOfTheKingPoster, name: "반지의 제왕", sectionNum: 1),
                          Contents(image: .signalPoster, name: "시그널", sectionNum: 1),
                          Contents(image: .harryPotterPoster, name: "해리포터", sectionNum: 1),

@@ -46,6 +46,11 @@ extension UIImage {
     static var signalPoster: UIImage { UIImage(named: "signalPoster.png")! }
     static var suzumePoster: UIImage { UIImage(named: "SuzumePoster.png")! }
     static var mtPoster: UIImage { UIImage(named: "MT.jpg")! }
+    
+    static var main1: UIImage { UIImage(named: "Main1.jpg")! }
+    static var main2: UIImage { UIImage(named: "Main2.jpg")! }
+    static var main3: UIImage { UIImage(named: "Main3.jpg")! }
+    static var main4: UIImage { UIImage(named: "Main4.jpg")! }
 
     static var banner1: UIImage { UIImage(named: "Banner1.jpg")! }
     static var banner2: UIImage { UIImage(named: "Banner2.jpg")! }

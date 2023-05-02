@@ -11,13 +11,15 @@ import SnapKit
 import Then
 
 protocol dataBindProtocol: AnyObject {
-    func dataBind(num: Int)
+    func dataBind(page: Int)
 }
 
 class MainView: BaseView {
     
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     private let dummy = Contents.dummy()
+    private var mainPagingPage: Int = 0
+    
     weak var delegate: dataBindProtocol?
     
     private func createLayout() -> UICollectionViewLayout {
@@ -39,6 +41,11 @@ class MainView: BaseView {
             section.boundarySupplementaryItems = sectionLayout.header
             section.boundarySupplementaryItems += sectionLayout.footer
             
+            if sectionLayout.rawValue == "Header" {
+                section.visibleItemsInvalidationHandler = { visibleItems, scrollOffset, layoutEnvironment in
+                    self.mainPagingPage = Int(scrollOffset.x / (self.frame.width * sectionLayout.itemSize.widthDimension.dimension))
+                }
+            }
             return section
         }, configuration: config)
         
@@ -76,12 +83,14 @@ class MainView: BaseView {
     }
 }
 extension MainView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, willDisplay: UICollectionViewCell, forItemAt: IndexPath){
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying: UICollectionViewCell, forItemAt: IndexPath) {
         if forItemAt.section == 0 {
-            delegate?.dataBind(num: forItemAt.row)
+            delegate?.dataBind(page: mainPagingPage)
         }
     }
 }
+
 extension MainView: UICollectionViewDataSource {
     
     // section 개수
