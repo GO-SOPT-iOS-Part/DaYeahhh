@@ -10,7 +10,11 @@ import UIKit
 import SnapKit
 import Then
 
-class MainHomeViewController: TVINGBaseViewController {
+protocol dataBindProtocol: AnyObject {
+    func dataBind(page: Int)
+}
+
+class MainHomeViewController: MainBaseViewController {
     
     // MARK: - Property
     
@@ -20,9 +24,7 @@ class MainHomeViewController: TVINGBaseViewController {
     private var mainPagingPage: Int = 0
     
     weak var delegate: dataBindProtocol?
-    
-    var user: TvingUser?
-    
+        
     private func createLayout() -> UICollectionViewLayout {
         
         let config = UICollectionViewCompositionalLayoutConfiguration()
@@ -73,25 +75,6 @@ class MainHomeViewController: TVINGBaseViewController {
         
         target()
     }
-}
-
-extension MainHomeViewController {
-    
-    // MARK: - objc func
-    
-    @objc
-    func tappedGoToMyPageBtn() {
-        let myPageViewController = MyPageViewController()
-        myPageViewController.userDataBind(orignalUser: user)
-        self.navigationController?.pushViewController(myPageViewController, animated: true)
-    }
-    
-    // MARK: - Custom func
-    
-    func userDataBind(orignalUser: TvingUser) {
-        user = orignalUser
-    }
-    
 }
 
 extension MainHomeViewController: UICollectionViewDataSource {

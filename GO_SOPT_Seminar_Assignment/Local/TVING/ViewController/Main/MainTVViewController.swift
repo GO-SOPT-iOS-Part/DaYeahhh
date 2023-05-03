@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTVViewController: TVINGBaseViewController {
+class MainTVViewController: MainBaseViewController {
 
     private let mainView = UIImageView()
     
@@ -30,9 +30,7 @@ class MainTVViewController: TVINGBaseViewController {
         
         mainView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(120)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(52)
-            
+            $0.bottom.leading.trailing.equalToSuperview()            
         }
     }
 }

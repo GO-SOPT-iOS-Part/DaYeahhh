@@ -16,6 +16,8 @@ class MainViewTopMenu: UIView {
     
     let topSegment = UIScrollView()
     let topSegmentLabelStackView = UIStackView()
+    let topSegmentIndicator = MainViewSegmentIndicator()
+    
     let homeLabel = UILabel()
     let liveLavel = UILabel()
     let tvProgramLabel = UILabel()
@@ -92,9 +94,8 @@ class MainViewTopMenu: UIView {
             $0.textColor = .white
             $0.font = .tvingMedium(ofSize: 17)
         }
-        
-        
     }
+    
     private func setHierarchy() {
         self.addSubviews(topMenu,
                          topSegment)
@@ -103,7 +104,8 @@ class MainViewTopMenu: UIView {
                             topPairingBtn,
                             topprofileBtn)
         
-        topSegment.addSubviews(topSegmentLabelStackView)
+        topSegment.addSubviews(topSegmentLabelStackView,
+                               topSegmentIndicator)
         
         topSegmentLabelStackView.addArrangedSubviews(homeLabel,
                                                      liveLavel,
@@ -134,12 +136,19 @@ class MainViewTopMenu: UIView {
         topSegment.snp.makeConstraints {
             $0.height.equalTo(40)
             $0.top.equalTo(topMenu.snp.bottom)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.bottom.trailing.equalToSuperview()
         }
         topSegmentLabelStackView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(10)
-            $0.centerY.trailing.equalToSuperview()
+            $0.height.equalTo(25)
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(10)
         }
+        topSegmentIndicator.snp.makeConstraints {
+            $0.height.equalTo(5)
+            $0.leading.trailing.equalToSuperview().inset(10)
+            $0.top.equalTo(topSegmentLabelStackView.snp.bottom).offset(10)
+        }
+        
         homeLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
         }

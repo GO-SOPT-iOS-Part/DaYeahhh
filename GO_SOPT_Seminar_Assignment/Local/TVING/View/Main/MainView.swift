@@ -10,10 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-protocol dataBindProtocol: AnyObject {
-    func dataBind(page: Int)
-}
-
 class MainView: BaseView {
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
@@ -40,8 +36,7 @@ class MainView: BaseView {
     
     override func setLayout() {
         collectionView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(52)
+            $0.edges.equalToSuperview()
         }
     }
 }

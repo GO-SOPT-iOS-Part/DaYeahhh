@@ -1,29 +1,34 @@
 //
-//  TVINGBaseViewController.swift
+//  BottomMenu.swift
 //  GO_SOPT_Seminar_Assignment
 //
-//  Created by 김다예 on 2023/04/26.
+//  Created by 김다예 on 2023/05/03.
 //
 
 import UIKit
 
-import SnapKit
-import Then
+class BottomMenu: UIView {
 
-class TVINGBaseViewController: BaseViewController {
-    
     let bottomMenu = UIStackView()
     let bottomHomeBtn = UIButton()
     let bottomPreBtn = UIButton()
     let bottomSearchBtn = UIButton()
     let bottomRecordBtn = UIButton()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setStyle()
+        setHierarchy()
+        setLayout()
     }
     
-    override func setStyle() {
-        view.backgroundColor = .black
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setStyle() {
+        self.backgroundColor = .black
         
         bottomMenu.do {
             $0.axis = .horizontal
@@ -47,21 +52,29 @@ class TVINGBaseViewController: BaseViewController {
             $0.imageView?.contentMode = .scaleAspectFit
         }
     }
-    
-    override func sethirarchy() {
-        view.addSubview(bottomMenu)
+    private func setHierarchy() {
+        self.addSubview(bottomMenu)
         
         bottomMenu.addArrangedSubviews(bottomHomeBtn,
                                        bottomPreBtn,
                                        bottomSearchBtn,
                                        bottomRecordBtn)
     }
-    
-    override func setLayout() {
+    private func setLayout() {
         bottomMenu.snp.makeConstraints {
-            $0.height.equalTo(52)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide)
-            $0.leading.trailing.equalToSuperview()
+            $0.edges.equalToSuperview()
+        }
+        bottomHomeBtn.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+        }
+        bottomPreBtn.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+        }
+        bottomSearchBtn.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+        }
+        bottomRecordBtn.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
         }
     }
 }

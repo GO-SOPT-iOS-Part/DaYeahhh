@@ -10,11 +10,12 @@ import UIKit
 import SnapKit
 import Then
 
-class MyPageViewController: TVINGBaseViewController {
+class MyPageViewController: BaseViewController {
     
     // MARK: - Property
 
     private let mainView = MyPageView()
+    private let bottomMenuBar = BottomMenu()
     
     var user: TvingUser?
     
@@ -40,6 +41,22 @@ class MyPageViewController: TVINGBaseViewController {
         super.viewDidLoad()
         
         target()
+    }
+    
+    override func sethirarchy() {
+        super.sethirarchy()
+        
+        view.addSubviews(bottomMenuBar)
+    }
+    
+    override func setLayout() {
+        super.setLayout()
+
+        bottomMenuBar.snp.makeConstraints{
+                $0.height.equalTo(52)
+                $0.bottom.equalTo(view.safeAreaLayoutGuide)
+                $0.leading.trailing.equalToSuperview()
+        }
     }
 
 }
