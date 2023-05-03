@@ -39,6 +39,10 @@ class MainViewController: BaseViewController {
     
     private func target() {
         topMenuBar.topprofileBtn.addTarget(self, action: #selector(tappedGoToMyPageBtn), for: .touchUpInside)
+        topMenuBar.topSegmentLabelStackView.arrangedSubviews.forEach {
+            $0.isUserInteractionEnabled = true
+            $0.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(segmentTouched)))
+        }
         pageVCDummy.forEach {
             $0.scrollDelegate = self
         }
@@ -99,6 +103,14 @@ extension MainViewController {
         let myPageViewController = MyPageViewController()
         myPageViewController.userDataBind(orignalUser: user)
         self.navigationController?.pushViewController(myPageViewController, animated: true)
+    }
+    
+    @objc
+    func segmentTouched(sender: UITapGestureRecognizer) {
+        guard let labelView = sender.view else { return }
+        guard let index = topMenuBar.topSegmentLabelStackView.arrangedSubviews.firstIndex(of: labelView) else { return }
+        pageController.setViewControllers([pageVCDummy[index]], direction: .forward, animated: true, completion: nil)
+        currentPageIndex = index
     }
     
     // MARK: - Custom func

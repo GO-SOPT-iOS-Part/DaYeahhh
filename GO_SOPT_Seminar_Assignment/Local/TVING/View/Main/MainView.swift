@@ -25,6 +25,7 @@ class MainView: BaseView {
             $0.register(MainViewPagingIndicator.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: MainViewPagingIndicator.identifier)
             $0.backgroundColor = .black
             $0.contentInsetAdjustmentBehavior = .never
+            $0.showsVerticalScrollIndicator = false
         }
     }
     

@@ -80,7 +80,7 @@ private extension LoginViewController {
         saveUserEmail()
         let mainViewController = MainViewController()
         mainViewController.userDataBind(orignalUser: originUser)
-        self.navigationController?.pushViewController(mainViewController, animated: false)
+        self.navigationController?.pushViewController(mainViewController, animated: true)
     }
     
     @objc
