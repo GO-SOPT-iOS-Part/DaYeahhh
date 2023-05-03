@@ -11,84 +11,65 @@ import SnapKit
 import Then
 
 class MainViewController: TVINGBaseViewController {
-
+    
     // MARK: - Property
-
-    private let mainView = MainView()
-    let topMenu = MainViewTopMenu()
     
-    private let dummy = Contents.dummy()
-    private var mainPagingPage: Int = 0
+    private let topMenuBar = MainViewTopMenu()
+    private let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
-    weak var delegate: dataBindProtocol?
-
+    lazy var homeVC = MainHomeViewController()
+    lazy var liveVC = MainLiveViewController()
+    lazy var tvVC = MainTVViewController()
+    lazy var movieVC = MainMovieViewController()
+    lazy var paramountVC = MainParamountViewController()
+    lazy var kidsVC = MainKidsViewController()
+    
+    lazy var pageVCDummy = [homeVC, liveVC, tvVC, movieVC, paramountVC, kidsVC]
+    
     var user: TvingUser?
     
-    private func createLayout() -> UICollectionViewLayout {
-        
-        let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 30
-        
-        let layout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-            guard let sectionLayout = ContentsSectionLayout(rawValue: Contents.sectionLayout()[sectionIndex]) else {return nil}
-            
-            let itemSize = sectionLayout.itemSize
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [item])
-            let section = NSCollectionLayoutSection(group: group)
-            
-            section.orthogonalScrollingBehavior = sectionLayout.orthogonalScrollinBehavior
-            section.interGroupSpacing = sectionLayout.interGroupSpacing
-            section.boundarySupplementaryItems = sectionLayout.header
-            section.boundarySupplementaryItems += sectionLayout.footer
-            
-            if sectionLayout.rawValue == "Header" {
-                section.visibleItemsInvalidationHandler = { visibleItems, scrollOffset, layoutEnvironment in
-                    self.mainPagingPage = Int(scrollOffset.x / (self.view.frame.width * sectionLayout.itemSize.widthDimension.dimension))
-                }
-            }
-            return section
-        }, configuration: config)
-        
-        return layout
+    // MARK: - Target
+    
+    private func target() {
+        topMenuBar.topprofileBtn.addTarget(self, action: #selector(tappedGoToMyPageBtn), for: .touchUpInside)
     }
     
-    // MARK: - Target
-
-    private func target() {
-        mainView.collectionView.delegate = self
-        mainView.collectionView.dataSource = self
-        mainView.collectionView.collectionViewLayout = createLayout()
-        
-        topMenu.topprofileBtn.addTarget(self, action: #selector(tappedGoToMyPageBtn), for: .touchUpInside)
-    }
-
     // MARK: - Lift Cycle
-
-    override func loadView() {
-        self.view = mainView
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         target()
+    }
+    
+    override func setStyle() {
+        pageController.do {
+            $0.delegate = self
+            $0.dataSource = self
+        }
     }
     
     override func sethirarchy() {
         super.sethirarchy()
         
-        view.addSubviews(topMenu)
+        view.addSubviews(pageController.view, topMenuBar)
+        addChild(pageController)
+        pageController.didMove(toParent: self)
+        
+        if let firstVC = pageVCDummy.first {
+            pageController.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        }
     }
     
     override func setLayout() {
         super.setLayout()
         
-        topMenu.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.leading.trailing.equalToSuperview()
+        topMenuBar.snp.makeConstraints {
+            $0.height.equalTo(120)
+            $0.top.leading.trailing.equalToSuperview()
+        }
+        pageController.view.snp.makeConstraints {
+            $0.top.leading.trailing.bottom.equalToSuperview()
         }
     }
 }
@@ -96,7 +77,7 @@ class MainViewController: TVINGBaseViewController {
 extension MainViewController {
     
     // MARK: - objc func
-
+    
     @objc
     func tappedGoToMyPageBtn() {
         let myPageViewController = MyPageViewController()
@@ -105,49 +86,57 @@ extension MainViewController {
     }
     
     // MARK: - Custom func
-
+    
     func userDataBind(orignalUser: TvingUser) {
         user = orignalUser
     }
-
+    
 }
 
-extension MainViewController: UICollectionViewDataSource {
+extension MainViewController: UIPageViewControllerDelegate { }
+extension MainViewController: UIPageViewControllerDataSource {
     
-    // section 개수
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return dummy.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummy[section].count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainViewContentsCell.identifier, for: indexPath) as? MainViewContentsCell else { return UICollectionViewCell()}
-        cell.configureCell(dummy[indexPath.section][indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader{ // 헤더일때
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MainViewSectionHeader.identifier, for: indexPath) as? MainViewSectionHeader else {return UICollectionReusableView()}
-            header.mainLabel.text = Contents.sectionName()[indexPath.section]
-            return header
-        } else {
-            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MainViewPagingIndicator.identifier, for: indexPath) as? MainViewPagingIndicator else {return UICollectionReusableView()}
-            footer.numberOfPages = dummy[indexPath.section].count
-            self.delegate = footer
-            return footer
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = pageVCDummy.firstIndex(of: viewController as! TVINGBaseViewController) else { return nil }
+        let previousIndex = index - 1
+        if previousIndex < 0 {
+            return nil
         }
+        return pageVCDummy[previousIndex]
     }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = pageVCDummy.firstIndex(of: viewController as! TVINGBaseViewController) else { return nil }
+        let previousIndex = index + 1
+        if previousIndex == pageVCDummy.count {
+            return nil
+        }
+        return pageVCDummy[previousIndex]
+    }
+    
+    
 }
 
-extension MainViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying: UICollectionViewCell, forItemAt: IndexPath) {
-        if forItemAt.section == 0 {
-            delegate?.dataBind(page: mainPagingPage)
-        }
+extension MainViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView.contentOffset.y > 0 {
+//            if scrollView.contentOffset.y < topMenuBar.frame.size.height/2 {
+//                topMenuBar.snp.updateConstraints {
+//                    $0.top.equalToSuperview().inset(-scrollView.contentOffset.y)
+//                }
+//            } else {
+//                topMenuBar.snp.updateConstraints {
+//                    $0.top.equalToSuperview().inset(-40)
+//                }
+//                topMenuBar.topMenu.isHidden = true
+//
+//            }
+//        } else {
+//            topMenuBar.snp.updateConstraints {
+//                $0.top.equalToSuperview()
+//            }
+//            topMenuBar.topMenu.isHidden = false
+//        }
+        print(scrollView.contentOffset.y)
     }
 }

@@ -65,5 +65,12 @@ extension UIImage {
     static var paramount3: UIImage { UIImage(named: "paramount3.jpg")! }
     static var paramount4: UIImage { UIImage(named: "paramount4.jpg")! }
     static var paramount5: UIImage { UIImage(named: "paramount5.jpg")! }
+    
+    static var liveView: UIImage { UIImage(named: "LiveView.jpg")! }
+    static var tvView: UIImage { UIImage(named: "TVView.jpg")! }
+    static var movieView: UIImage { UIImage(named: "MovieView.jpg")! }
+    static var paramountView: UIImage { UIImage(named: "ParamountView.jpg")! }
+    static var kidsView: UIImage { UIImage(named: "KidsView.jpg")! }
+
 
 }
