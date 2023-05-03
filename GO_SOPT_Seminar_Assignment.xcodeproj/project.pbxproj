@@ -242,7 +242,6 @@
 		6B59451429F5BF1C0087A4C3 /* TVING */ = {
 			isa = PBXGroup;
 			children = (
-				6BF94AF329F83F6D0024C256 /* TVINGBaseViewController.swift */,
 				6BF94B4429FAE9B70024C256 /* ViewController */,
 				6BF94B4129FAE91E0024C256 /* Classes & Structure */,
 				6B59454B29F5C6180087A4C3 /* View */,
@@ -305,16 +304,78 @@
 		6B59454B29F5C6180087A4C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6B6C2F7F2A02774F00F76247 /* Login */,
+				6B6C2F802A02775B00F76247 /* Main */,
+				6B6C2F812A02776D00F76247 /* MyPage */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B6C2F7B2A0276FF00F76247 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				6BF94AF329F83F6D0024C256 /* TVINGBaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		6B6C2F7C2A02770B00F76247 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6B59451729F5C00B0087A4C3 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		6B6C2F7D2A02771800F76247 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6B09E73029F6F34200EFECAB /* MainViewController.swift */,
+				6B6C2F692A024E3400F76247 /* MainHomeViewController.swift */,
+				6B6C2F712A026C2C00F76247 /* MainLiveViewController.swift */,
+				6B6C2F732A026C3E00F76247 /* MainTVViewController.swift */,
+				6B6C2F752A026C4F00F76247 /* MainMovieViewController.swift */,
+				6B6C2F772A026C6300F76247 /* MainParamountViewController.swift */,
+				6B6C2F792A026C7200F76247 /* MainKidsViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		6B6C2F7E2A02772800F76247 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				6B09E72629F6ECFB00EFECAB /* MyPageViewController.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		6B6C2F7F2A02774F00F76247 /* Login */ = {
+			isa = PBXGroup;
+			children = (
 				6B59454C29F5C6300087A4C3 /* NickNameBottomSheetView.swift */,
 				6B59454E29F5C6560087A4C3 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		6B6C2F802A02775B00F76247 /* Main */ = {
+			isa = PBXGroup;
+			children = (
 				6B09E72E29F6F33200EFECAB /* MainView.swift */,
 				6B6C2F5829FECF2000F76247 /* MainViewSectionHeader.swift */,
 				6B6C2F622A00180300F76247 /* MainViewTopMenu.swift */,
 				6B6C2F672A0120E300F76247 /* MainViewPagingIndicator.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		6B6C2F812A02776D00F76247 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
 				6B09E72429F6ECE500EFECAB /* MyPageView.swift */,
 				6BF94B1529F986170024C256 /* MyPageViewHeader.swift */,
 			);
-			path = View;
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		6BF94B0529F845C50024C256 /* bottomBtnImg */ = {
@@ -348,15 +409,10 @@
 		6BF94B4429FAE9B70024C256 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6B59451729F5C00B0087A4C3 /* LoginViewController.swift */,
-				6B09E73029F6F34200EFECAB /* MainViewController.swift */,
-				6B6C2F692A024E3400F76247 /* MainHomeViewController.swift */,
-				6B6C2F712A026C2C00F76247 /* MainLiveViewController.swift */,
-				6B6C2F732A026C3E00F76247 /* MainTVViewController.swift */,
-				6B6C2F752A026C4F00F76247 /* MainMovieViewController.swift */,
-				6B6C2F772A026C6300F76247 /* MainParamountViewController.swift */,
-				6B6C2F792A026C7200F76247 /* MainKidsViewController.swift */,
-				6B09E72629F6ECFB00EFECAB /* MyPageViewController.swift */,
+				6B6C2F7B2A0276FF00F76247 /* Base */,
+				6B6C2F7C2A02770B00F76247 /* Login */,
+				6B6C2F7D2A02771800F76247 /* Main */,
+				6B6C2F7E2A02772800F76247 /* MyPage */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
