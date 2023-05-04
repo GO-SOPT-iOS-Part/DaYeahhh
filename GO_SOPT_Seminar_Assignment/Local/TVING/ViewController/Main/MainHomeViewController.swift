@@ -21,7 +21,7 @@ class MainHomeViewController: MainBaseViewController {
     private let mainView = MainView()
     
     private let dummy = Contents.dummy()
-    private var mainPagingPage: Int = 0
+    private var mainPagingIndex: Int = 0
     
     weak var delegate: dataBindProtocol?
         
@@ -46,7 +46,7 @@ class MainHomeViewController: MainBaseViewController {
             
             if sectionLayout.rawValue == "Header" {
                 section.visibleItemsInvalidationHandler = { visibleItems, scrollOffset, layoutEnvironment in
-                    self.mainPagingPage = Int(scrollOffset.x / (self.view.frame.width * sectionLayout.itemSize.widthDimension.dimension))
+                    self.mainPagingIndex = Int(scrollOffset.x / (self.view.frame.width * sectionLayout.itemSize.widthDimension.dimension))
                 }
             }
             return section
@@ -61,7 +61,6 @@ class MainHomeViewController: MainBaseViewController {
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
         mainView.collectionView.collectionViewLayout = createLayout()
-        
     }
     
     // MARK: - Lift Cycle
@@ -111,8 +110,9 @@ extension MainHomeViewController: UICollectionViewDataSource {
 extension MainHomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying: UICollectionViewCell, forItemAt: IndexPath) {
+        // 첫 번째 섹션일 때만 cell Index값 전달
         if forItemAt.section == 0 {
-            delegate?.dataBind(page: mainPagingPage)
+            delegate?.dataBind(page: mainPagingIndex)
         }
     }
 }

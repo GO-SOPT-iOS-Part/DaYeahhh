@@ -131,6 +131,37 @@ extension MainViewController {
         topMenuBar.topSegmentIndicator.width = topSegmentIndicatorWidth[index]
         topMenuBar.topSegmentIndicator.leftInset = topSegmentIndicatorWidth[0..<index].reduce(0, +) + (CGFloat(index) * topMenuBar.topSegmentLabelStackView.spacing)
     }
+    
+    func updateTopMenu(inset: CGFloat, topHidden: Bool){
+        topMenuBar.snp.updateConstraints {
+            $0.top.equalToSuperview().inset(inset)
+        }
+        topMenuBar.topMenu.isHidden = topHidden
+    }
+    
+    func updateTopMenuBarConstraints(scroll: CGFloat) {
+        if scroll > 0 {
+            if scroll < 40 {
+                updateTopMenu(inset: -scroll, topHidden: false)
+            } else {
+                updateTopMenu(inset: -40, topHidden: true)
+            }
+        } else {
+            updateTopMenu(inset: 0, topHidden: false)
+        }
+    }
+    
+    func updateTopMenuBarColor(scroll: CGFloat) {
+        let scrolledDistance = ContentsSectionLayout.header.itemSize.heightDimension.dimension
+        if scroll > 20 {
+            topMenuBar.backgroundColor = .black.withAlphaComponent(scroll / scrolledDistance)
+            if scroll > scrolledDistance {
+                topMenuBar.backgroundColor = .black
+            }
+        } else {
+            topMenuBar.backgroundColor = .clear
+        }
+    }
 }
 
 extension MainViewController: UIPageViewControllerDelegate { }
@@ -139,18 +170,14 @@ extension MainViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = pageVCDummy.firstIndex(of: viewController as! MainBaseViewController) else { return nil }
         let previousIndex = index - 1
-        if previousIndex < 0 {
-            return nil
-        }
+        if previousIndex < 0 { return nil }
         return pageVCDummy[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let index = pageVCDummy.firstIndex(of: viewController as! MainBaseViewController) else { return nil }
         let nextIndex = index + 1
-        if nextIndex > pageVCDummy.count - 1 {
-            return nil
-        }
+        if nextIndex > pageVCDummy.count - 1 { return nil }
         return pageVCDummy[nextIndex]
     }
     
@@ -164,30 +191,7 @@ extension MainViewController: UIPageViewControllerDataSource {
 extension MainViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 0 {
-            if scrollView.contentOffset.y < 40 {
-                topMenuBar.snp.updateConstraints {
-                    $0.top.equalToSuperview().inset(-scrollView.contentOffset.y)
-                }
-            } else {
-                topMenuBar.snp.updateConstraints {
-                    $0.top.equalToSuperview().inset(-40)
-                }
-                topMenuBar.topMenu.isHidden = true
-            }
-        } else {
-            topMenuBar.snp.updateConstraints {
-                $0.top.equalToSuperview()
-            }
-            topMenuBar.topMenu.isHidden = false
-        }
-        if scrollView.contentOffset.y > 20 {
-            topMenuBar.backgroundColor = .black.withAlphaComponent(scrollView.contentOffset.y / ContentsSectionLayout.header.itemSize.heightDimension.dimension)
-            if scrollView.contentOffset.y > ContentsSectionLayout.header.itemSize.heightDimension.dimension {
-                topMenuBar.backgroundColor = .black
-            }
-        } else {
-            topMenuBar.backgroundColor = .clear
-        }
+        updateTopMenuBarConstraints(scroll: scrollView.contentOffset.y)
+        updateTopMenuBarColor(scroll: scrollView.contentOffset.y)
     }
 }
