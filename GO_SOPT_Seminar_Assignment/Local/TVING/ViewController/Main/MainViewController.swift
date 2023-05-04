@@ -26,7 +26,8 @@ class MainViewController: BaseViewController {
     lazy var kidsVC = MainKidsViewController()
     
     lazy var pageVCDummy = [homeVC, liveVC, tvVC, movieVC, paramountVC, kidsVC]
-    private var pageVCIndicatorWidth: [CGFloat] = []
+    
+    private var topSegmentIndicatorWidth: [CGFloat] = []
     var currentPageIndex: Int = 0 {
         didSet{
             settingTopSegmentIndicator(index: currentPageIndex)
@@ -43,6 +44,7 @@ class MainViewController: BaseViewController {
             $0.isUserInteractionEnabled = true
             $0.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(segmentTouched)))
         }
+        
         pageVCDummy.forEach {
             $0.scrollDelegate = self
         }
@@ -107,8 +109,8 @@ extension MainViewController {
     
     @objc
     func segmentTouched(sender: UITapGestureRecognizer) {
-        guard let labelView = sender.view else { return }
-        guard let index = topMenuBar.topSegmentLabelStackView.arrangedSubviews.firstIndex(of: labelView) else { return }
+        guard let labelView = sender.view,
+                let index = topMenuBar.topSegmentLabelStackView.arrangedSubviews.firstIndex(of: labelView) else { return }
         pageController.setViewControllers([pageVCDummy[index]], direction: .forward, animated: true, completion: nil)
         currentPageIndex = index
     }
@@ -121,15 +123,14 @@ extension MainViewController {
     
     func getTopSegmentWidth() {
         topMenuBar.topSegmentLabelStackView.arrangedSubviews.forEach{
-            pageVCIndicatorWidth.append($0.intrinsicContentSize.width)
+            topSegmentIndicatorWidth.append($0.intrinsicContentSize.width)
         }
     }
     
     func settingTopSegmentIndicator(index: Int) {
-        topMenuBar.topSegmentIndicator.width = pageVCIndicatorWidth[index]
-        topMenuBar.topSegmentIndicator.leftInset = pageVCIndicatorWidth[0..<index].reduce(0, +) + (CGFloat(index) * topMenuBar.topSegmentLabelStackView.spacing)
+        topMenuBar.topSegmentIndicator.width = topSegmentIndicatorWidth[index]
+        topMenuBar.topSegmentIndicator.leftInset = topSegmentIndicatorWidth[0..<index].reduce(0, +) + (CGFloat(index) * topMenuBar.topSegmentLabelStackView.spacing)
     }
-    
 }
 
 extension MainViewController: UIPageViewControllerDelegate { }
@@ -146,16 +147,16 @@ extension MainViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let index = pageVCDummy.firstIndex(of: viewController as! MainBaseViewController) else { return nil }
-        let previousIndex = index + 1
-        if previousIndex > pageVCDummy.count - 1 {
+        let nextIndex = index + 1
+        if nextIndex > pageVCDummy.count - 1 {
             return nil
         }
-        return pageVCDummy[previousIndex]
+        return pageVCDummy[nextIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard let currentVC = pageViewController.viewControllers?.first,
-              let currentIndex = pageVCDummy.firstIndex(of: currentVC as! MainBaseViewController) else { return }
+                let currentIndex = pageVCDummy.firstIndex(of: currentVC as! MainBaseViewController) else { return }
         currentPageIndex = currentIndex
     }
 }

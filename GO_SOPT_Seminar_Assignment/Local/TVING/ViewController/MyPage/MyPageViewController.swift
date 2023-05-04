@@ -58,7 +58,6 @@ class MyPageViewController: BaseViewController {
                 $0.leading.trailing.equalToSuperview()
         }
     }
-
 }
 
 extension MyPageViewController {

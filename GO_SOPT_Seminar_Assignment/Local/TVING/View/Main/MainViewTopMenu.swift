@@ -117,7 +117,7 @@ class MainViewTopMenu: UIView {
     private func setLayout() {
         topMenu.snp.makeConstraints {
             $0.height.equalTo(40)
-            $0.top.equalToSuperview().inset(40)
+            $0.top.equalToSuperview().inset(50)
             $0.leading.trailing.equalToSuperview()
         }
         topLogoBtn.snp.makeConstraints {

@@ -31,7 +31,7 @@ class MainViewSegmentIndicator: UIView {
             trackTintView.snp.updateConstraints {
                 $0.leading.equalToSuperview().inset(leftInset)
             }
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.1, animations: {
                 self.layoutIfNeeded()
             })
         }
@@ -55,6 +55,7 @@ class MainViewSegmentIndicator: UIView {
         }
         trackTintView.do {
             $0.backgroundColor = .white
+            $0.makeRounded(radius: 2)
         }
         
     }
