@@ -60,6 +60,8 @@ class MainViewController: BaseViewController {
     }
     
     override func setStyle() {
+        super.setStyle()
+        
         pageController.do {
             $0.delegate = self
             $0.dataSource = self
