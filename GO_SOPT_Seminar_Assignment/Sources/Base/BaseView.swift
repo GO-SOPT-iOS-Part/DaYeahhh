@@ -13,6 +13,7 @@ class BaseView: UIView {
         super.init(frame: frame)
         
         setStyle()
+        setHierarchy()
         setLayout()
     }
     
@@ -21,6 +22,9 @@ class BaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setStyle() {}
+    func setStyle() {
+        self.backgroundColor = .black
+    }
+    func setHierarchy() {}
     func setLayout() {}
 }
