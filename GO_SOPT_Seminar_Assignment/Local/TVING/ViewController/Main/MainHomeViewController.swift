@@ -20,7 +20,7 @@ class MainHomeViewController: MainBaseViewController {
     
     private let mainView = MainView()
     
-    private let dummy = Contents.dummy()
+    private var dummy = Contents.dummy()
     private var mainPagingIndex: Int = 0
     
     weak var delegate: dataBindProtocol?
@@ -73,6 +73,31 @@ class MainHomeViewController: MainBaseViewController {
         super.viewDidLoad()
         
         target()
+        getMovieToAPI()
+    }
+}
+extension MainHomeViewController {
+    
+    private func getMovieToAPI() {
+        
+        MovieService.shared.getMovie() { response in
+            switch response {
+            case .success(let data):
+                print("Success")
+                guard let data = data as? ContentsDataModel else { return }
+                self.putMovieToDummy(movieList: data.results)
+                self.mainView.collectionView.reloadData()
+            default:
+                print("Failed")
+                return
+            }
+        }
+    }
+    
+    private func putMovieToDummy(movieList: [MovieList]) {
+        movieList.forEach {
+            dummy[1].append(Contents(image: .harryPotterPoster, name: $0.originalTitle, sectionNum: 1))
+        }
     }
 }
 
