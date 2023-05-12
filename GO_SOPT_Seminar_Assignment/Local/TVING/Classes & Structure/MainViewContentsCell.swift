@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Kingfisher
+
 class MainViewContentsCell: UICollectionViewCell {
     
     static let identifier = "ContentsCell"
@@ -38,6 +40,9 @@ extension MainViewContentsCell {
         contentsStackView.do {
             $0.axis = .vertical
             $0.distribution = .fill
+        }
+        contentsImg.do {
+            $0.contentMode = .scaleAspectFit
         }
         contentsName.do {
             $0.font = .tvingMedium(ofSize: 12)
@@ -75,7 +80,14 @@ extension MainViewContentsCell {
     }
     
     func configureCell(_ contents: Contents) {
-        contentsImg.image = contents.image
+        
+        if let img = contents.image {
+            contentsImg.image = img
+        }
+        if let imgLink = contents.imageLink {
+            contentsImg.kf.setImage(with: URL(string: imgLink))
+            print(imgLink)
+        }
         contentsName.text = contents.name
         contentsSubName.text = contents.subName
         

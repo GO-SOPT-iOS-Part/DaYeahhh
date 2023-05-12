@@ -8,7 +8,8 @@
 import UIKit
 
 struct Contents {
-    let image: UIImage
+    var image: UIImage? = nil
+    var imageLink: String? = nil
     var name: String? = nil
     var subName: String? = nil
     let sectionNum: Int

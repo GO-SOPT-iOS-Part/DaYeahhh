@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import SnapKit
 import Then
 
@@ -96,7 +97,7 @@ extension MainHomeViewController {
     
     private func putMovieToDummy(movieList: [MovieList]) {
         movieList.forEach {
-            dummy[1].append(Contents(image: .harryPotterPoster, name: $0.originalTitle, sectionNum: 1))
+            dummy[1].append(Contents(imageLink: "https://image.tmdb.org/t/p/original/" + $0.posterPath, name: $0.originalTitle, sectionNum: 1))
         }
     }
 }

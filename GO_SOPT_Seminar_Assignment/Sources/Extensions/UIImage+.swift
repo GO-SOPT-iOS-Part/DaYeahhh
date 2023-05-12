@@ -72,5 +72,5 @@ extension UIImage {
     static var paramountView: UIImage { UIImage(named: "ParamountView.jpg")! }
     static var kidsView: UIImage { UIImage(named: "KidsView.jpg")! }
 
-
+    
 }

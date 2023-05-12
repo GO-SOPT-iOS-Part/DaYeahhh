@@ -17,7 +17,7 @@ final class MovieService {
     
     func getMovie(completion: @escaping (NetworkResult<Any>) -> Void) {
         
-        let kindsOfMovieData = "top_rated?"
+        let kindsOfMovieData = "now_playing?"
         let kindsOfMovieLanguage = "&language=en-US"
         let url = Config.baseURL + kindsOfMovieData + "api_key=" + Config.personalKey + kindsOfMovieLanguage
         let dataRequest = AF.request(url,
