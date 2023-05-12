@@ -86,7 +86,6 @@ extension MainViewContentsCell {
         }
         if let imgLink = contents.imageLink {
             contentsImg.kf.setImage(with: URL(string: imgLink))
-            print(imgLink)
         }
         contentsName.text = contents.name
         contentsSubName.text = contents.subName

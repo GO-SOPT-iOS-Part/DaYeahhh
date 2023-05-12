@@ -17,7 +17,6 @@
 		6B27D6CA2A0D72C40033BB21 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B27D6C92A0D72C40033BB21 /* NetworkResult.swift */; };
 		6B27D6CC2A0D80040033BB21 /* ContentsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B27D6CB2A0D80040033BB21 /* ContentsDataModel.swift */; };
 		6B27D6CE2A0E0D670033BB21 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B27D6CD2A0E0D670033BB21 /* MovieService.swift */; };
-		6B27D6D02A0E10EA0033BB21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B27D6CF2A0E10EA0033BB21 /* ViewController.swift */; };
 		6B27D6D32A0E34A10033BB21 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 6B27D6D22A0E34A10033BB21 /* Kingfisher */; };
 		6B5944FD29F5BE000087A4C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5944FC29F5BE000087A4C3 /* AppDelegate.swift */; };
 		6B5944FF29F5BE000087A4C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5944FE29F5BE000087A4C3 /* SceneDelegate.swift */; };
@@ -99,7 +98,6 @@
 		6B27D6C92A0D72C40033BB21 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		6B27D6CB2A0D80040033BB21 /* ContentsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsDataModel.swift; sourceTree = "<group>"; };
 		6B27D6CD2A0E0D670033BB21 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
-		6B27D6CF2A0E10EA0033BB21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6B5944F929F5BE000087A4C3 /* GO_SOPT_Seminar_Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GO_SOPT_Seminar_Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B5944FC29F5BE000087A4C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B5944FE29F5BE000087A4C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -445,7 +443,6 @@
 				6B6C2F7C2A02770B00F76247 /* Login */,
 				6B6C2F7D2A02771800F76247 /* Main */,
 				6B6C2F7E2A02772800F76247 /* MyPage */,
-				6B27D6CF2A0E10EA0033BB21 /* ViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -587,7 +584,6 @@
 				6B09E73129F6F34200EFECAB /* MainViewController.swift in Sources */,
 				6B6C2F862A029CA700F76247 /* MainViewSegmentIndicator.swift in Sources */,
 				6B6C2F722A026C2C00F76247 /* MainLiveViewController.swift in Sources */,
-				6B27D6D02A0E10EA0033BB21 /* ViewController.swift in Sources */,
 				6B6C2F5929FECF2000F76247 /* MainViewSectionHeader.swift in Sources */,
 				6B6C2F782A026C6300F76247 /* MainParamountViewController.swift in Sources */,
 				6B59454429F5C5380087A4C3 /* UIStackView+.swift in Sources */,
