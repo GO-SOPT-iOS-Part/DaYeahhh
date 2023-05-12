@@ -34,6 +34,7 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         setStyle()
+        sethirarchy()
         setLayout()
     }
     
@@ -52,11 +53,12 @@ class BaseViewController: UIViewController {
     
     /// Attributes (속성) 설정 메서드
     func setStyle() {
-        
         view.backgroundColor = .black
     }
+    /// Hierarchy (계층) 설정 메서드
+    func sethirarchy() {}
     
-    /// Hierarchy, Constraints (계층 및 제약조건) 설정 메서드
+    /// Constraints (제약조건) 설정 메서드
     func setLayout() {}
     
     
